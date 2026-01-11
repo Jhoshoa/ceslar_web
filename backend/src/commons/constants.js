@@ -3,7 +3,8 @@
  */
 
 module.exports = {
-  // User roles
+  // Legacy user roles (kept for backwards compatibility)
+  // @deprecated Use SYSTEM_ROLES and CHURCH_ROLES instead
   ROLES: {
     ADMIN: 'admin',
     PASTOR: 'pastor',
@@ -11,6 +12,124 @@ module.exports = {
     LEADER: 'leader',
     MEMBER: 'member',
     VISITOR: 'visitor'
+  },
+
+  // System-wide roles (not church-specific)
+  SYSTEM_ROLES: {
+    SYSTEM_ADMIN: 'system_admin',
+    USER: 'user'
+  },
+
+  // Church-specific roles (per church membership)
+  CHURCH_ROLES: {
+    ADMIN: 'admin',
+    PASTOR: 'pastor',
+    LEADER: 'leader',
+    MEMBER: 'member',
+    VISITOR: 'visitor'
+  },
+
+  // Church hierarchy levels
+  CHURCH_LEVELS: {
+    HEADQUARTERS: 'headquarters',
+    COUNTRY: 'country',
+    DEPARTMENT: 'department',
+    PROVINCE: 'province',
+    LOCAL: 'local'
+  },
+
+  // Church status
+  CHURCH_STATUS: {
+    PENDING: 'pending',
+    ACTIVE: 'active',
+    INACTIVE: 'inactive',
+    SUSPENDED: 'suspended'
+  },
+
+  // Membership status
+  MEMBERSHIP_STATUS: {
+    PENDING: 'pending',
+    APPROVED: 'approved',
+    REJECTED: 'rejected',
+    SUSPENDED: 'suspended'
+  },
+
+  // Church leadership roles
+  LEADERSHIP_ROLES: {
+    SENIOR_PASTOR: 'senior_pastor',
+    PASTOR: 'pastor',
+    ELDER: 'elder',
+    DEACON: 'deacon',
+    ADMIN: 'admin'
+  },
+
+  // Supported languages
+  LANGUAGES: {
+    SPANISH: 'es',
+    ENGLISH: 'en',
+    PORTUGUESE: 'pt'
+  },
+
+  // Content visibility levels
+  VISIBILITY_LEVELS: {
+    CHURCH_ONLY: 'church_only',
+    DEPARTMENT: 'department',
+    COUNTRY: 'country',
+    GLOBAL: 'global'
+  },
+
+  // Sermon visibility
+  SERMON_VISIBILITY: {
+    CHURCH_ONLY: 'church_only',
+    NETWORK_WIDE: 'network_wide'
+  },
+
+  // Question types for dynamic forms
+  QUESTION_TYPES: {
+    TEXT: 'text',
+    TEXTAREA: 'textarea',
+    SELECT: 'select',
+    MULTISELECT: 'multiselect',
+    RADIO: 'radio',
+    CHECKBOX: 'checkbox',
+    DATE: 'date',
+    NUMBER: 'number',
+    EMAIL: 'email',
+    PHONE: 'phone'
+  },
+
+  // Question target audience
+  QUESTION_AUDIENCE: {
+    ALL: 'all',
+    NEW_VISITORS: 'new_visitors',
+    RETURNING: 'returning',
+    MEMBERS: 'members'
+  },
+
+  // Question scope
+  QUESTION_SCOPE: {
+    GLOBAL: 'global',
+    CHURCH_SPECIFIC: 'church_specific'
+  },
+
+  // Ministry scope
+  MINISTRY_SCOPE: {
+    LOCAL: 'local',
+    DEPARTMENT: 'department',
+    COUNTRY: 'country',
+    GLOBAL: 'global'
+  },
+
+  // Service schedule types
+  SERVICE_TYPES: {
+    SUNDAY_SERVICE: 'sunday_service',
+    BIBLE_STUDY: 'bible_study',
+    PRAYER: 'prayer',
+    YOUTH: 'youth',
+    CHILDREN: 'children',
+    WOMEN: 'women',
+    MEN: 'men',
+    OTHER: 'other'
   },
 
   // Ministry types

@@ -1,8 +1,23 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const { SERMON_CATEGORIES } = require('../commons/constants');
+const { SERMON_CATEGORIES, SERMON_VISIBILITY } = require('../commons/constants');
 
 const sermonSchema = new mongoose.Schema({
+  // Church association
+  church: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Church',
+    index: true
+    // Not required initially for backwards compatibility
+  },
+
+  // Visibility across church network
+  sermonVisibility: {
+    type: String,
+    enum: Object.values(SERMON_VISIBILITY),
+    default: SERMON_VISIBILITY.NETWORK_WIDE // Sermons typically shared
+  },
+
   title: {
     type: String,
     required: true,
@@ -105,5 +120,7 @@ sermonSchema.pre('save', function(next) {
 sermonSchema.index({ date: -1 });
 sermonSchema.index({ title: 'text', description: 'text', 'scripture.fullReference': 'text' });
 sermonSchema.index({ tags: 1 });
+sermonSchema.index({ church: 1, date: -1 });
+sermonSchema.index({ church: 1, sermonVisibility: 1 });
 
 module.exports = mongoose.model('Sermon', sermonSchema);

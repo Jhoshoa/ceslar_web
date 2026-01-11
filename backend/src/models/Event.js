@@ -1,8 +1,29 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const { EVENT_TYPES, EVENT_STATUS } = require('../commons/constants');
+const { EVENT_TYPES, EVENT_STATUS, VISIBILITY_LEVELS } = require('../commons/constants');
 
 const eventSchema = new mongoose.Schema({
+  // Church association
+  church: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Church',
+    index: true
+    // Not required initially for backwards compatibility
+  },
+
+  // For events shared across multiple churches
+  sharedWithChurches: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Church'
+  }],
+
+  // Visibility level for event
+  visibility: {
+    type: String,
+    enum: Object.values(VISIBILITY_LEVELS),
+    default: VISIBILITY_LEVELS.CHURCH_ONLY
+  },
+
   title: {
     type: String,
     required: true,
@@ -114,5 +135,8 @@ eventSchema.pre('save', function(next) {
 // Index for querying
 eventSchema.index({ startDate: 1, status: 1 });
 eventSchema.index({ type: 1 });
+eventSchema.index({ church: 1, startDate: 1, status: 1 });
+eventSchema.index({ church: 1, visibility: 1 });
+eventSchema.index({ sharedWithChurches: 1 });
 
 module.exports = mongoose.model('Event', eventSchema);

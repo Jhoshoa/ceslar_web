@@ -1,8 +1,23 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const { MINISTRY_TYPES } = require('../commons/constants');
+const { MINISTRY_TYPES, MINISTRY_SCOPE } = require('../commons/constants');
 
 const ministrySchema = new mongoose.Schema({
+  // Church association
+  church: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Church',
+    index: true
+    // Not required initially for backwards compatibility
+  },
+
+  // Ministry scope (local to church or wider)
+  scope: {
+    type: String,
+    enum: Object.values(MINISTRY_SCOPE),
+    default: MINISTRY_SCOPE.LOCAL
+  },
+
   name: {
     type: String,
     required: true,
@@ -87,5 +102,9 @@ ministrySchema.pre('save', function(next) {
   }
   next();
 });
+
+// Indexes
+ministrySchema.index({ church: 1, isActive: 1 });
+ministrySchema.index({ church: 1, scope: 1 });
 
 module.exports = mongoose.model('Ministry', ministrySchema);

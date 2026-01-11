@@ -2,6 +2,20 @@ const mongoose = require('mongoose');
 const { PRAYER_VISIBILITY } = require('../commons/constants');
 
 const prayerRequestSchema = new mongoose.Schema({
+  // Church association
+  church: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Church',
+    index: true
+    // Not required - can be global prayer requests
+  },
+
+  // Share with prayer teams across churches
+  sharedWithChurches: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Church'
+  }],
+
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -70,5 +84,8 @@ const prayerRequestSchema = new mongoose.Schema({
 // Index for querying
 prayerRequestSchema.index({ createdAt: -1 });
 prayerRequestSchema.index({ visibility: 1, isApproved: 1 });
+prayerRequestSchema.index({ church: 1, createdAt: -1 });
+prayerRequestSchema.index({ church: 1, visibility: 1, isApproved: 1 });
+prayerRequestSchema.index({ sharedWithChurches: 1 });
 
 module.exports = mongoose.model('PrayerRequest', prayerRequestSchema);

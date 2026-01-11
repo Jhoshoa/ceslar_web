@@ -3,6 +3,14 @@ const slugify = require('slugify');
 const { GROUP_TYPES, DAYS_OF_WEEK } = require('../commons/constants');
 
 const smallGroupSchema = new mongoose.Schema({
+  // Church association
+  church: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Church',
+    index: true
+    // Not required initially for backwards compatibility
+  },
+
   name: {
     type: String,
     required: true,
@@ -90,5 +98,9 @@ smallGroupSchema.pre('save', function(next) {
   }
   next();
 });
+
+// Indexes
+smallGroupSchema.index({ church: 1, isActive: 1 });
+smallGroupSchema.index({ church: 1, type: 1 });
 
 module.exports = mongoose.model('SmallGroup', smallGroupSchema);

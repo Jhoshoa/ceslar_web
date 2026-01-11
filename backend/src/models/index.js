@@ -4,6 +4,8 @@ const Sermon = require('./Sermon');
 const Ministry = require('./Ministry');
 const PrayerRequest = require('./PrayerRequest');
 const SmallGroup = require('./SmallGroup');
+const Church = require('./Church');
+const { Question, QuestionCategory } = require('./Question');
 
 module.exports = {
   User,
@@ -11,5 +13,8 @@ module.exports = {
   Sermon,
   Ministry,
   PrayerRequest,
-  SmallGroup
+  SmallGroup,
+  Church,
+  Question,
+  QuestionCategory
 };
