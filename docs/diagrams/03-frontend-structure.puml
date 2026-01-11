@@ -1,0 +1,120 @@
+@startuml Frontend Structure
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam packageStyle rectangle
+
+title Church Website - Frontend Architecture (React + MUI)
+
+package "Frontend Application" as app #E3F2FD {
+
+    package "Entry Point" as entry #BBDEFB {
+        component "main.jsx" as main
+        component "App.jsx" as appComponent
+        note right of main
+            - React DOM render
+            - Auth0Provider
+            - ThemeProvider
+            - BrowserRouter
+        end note
+    }
+
+    package "Theme" as theme #B3E5FC {
+        component "MUI Theme\n(Red, Blue, White)" as muiTheme
+    }
+
+    package "Components" as components #BBDEFB {
+
+        package "Layout" as layout {
+            component "Header" as header
+            component "Footer" as footer
+            component "Layout" as layoutComp
+        }
+
+        package "Common" as common {
+            component "Loading" as loading
+            component "SectionTitle" as sectionTitle
+        }
+
+        package "Pages" as pages {
+            component "HomePage" as homePage
+            component "AboutPage" as aboutPage
+            component "MinistriesPage" as ministriesPage
+            component "SermonsPage" as sermonsPage
+            component "EventsPage" as eventsPage
+            component "ContactPage" as contactPage
+        }
+
+        package "Features / Home" as homeFeatures {
+            component "HeroSection" as hero
+            component "WelcomeSection" as welcome
+            component "UpcomingEvents" as upcomingEvents
+            component "LatestSermon" as latestSermon
+            component "MinistriesSection" as ministries
+            component "CTASection" as cta
+            component "ContactSection" as contact
+        }
+    }
+
+    package "Services" as services #B2DFDB {
+        component "api.js\n(Axios Client)" as apiService
+        note right of apiService
+            - publicApi
+            - eventsApi
+            - sermonsApi
+            - ministriesApi
+            - usersApi
+        end note
+    }
+
+    package "Hooks" as hooks #C8E6C9 {
+        component "useApi" as useApi
+        component "useAuth" as useAuth
+    }
+
+    package "Helpers" as helpers #DCEDC8 {
+        component "formatters.js" as formatters
+        component "validators.js" as validators
+    }
+
+    package "Commons" as commons #F0F4C3 {
+        component "constants.js" as constants
+    }
+}
+
+' Relationships
+main --> appComponent
+appComponent --> layoutComp
+appComponent --> muiTheme
+layoutComp --> header
+layoutComp --> footer
+layoutComp --> homePage
+
+homePage --> hero
+homePage --> welcome
+homePage --> upcomingEvents
+homePage --> latestSermon
+homePage --> ministries
+homePage --> cta
+homePage --> contact
+
+upcomingEvents --> useApi
+latestSermon --> useApi
+useApi --> apiService
+useAuth --> apiService
+
+header --> useAuth
+homeFeatures --> sectionTitle
+homeFeatures --> loading
+
+apiService ..> constants : API_URL
+
+legend right
+    |= Layer |= Purpose |
+    | Entry | App initialization |
+    | Components | UI elements |
+    | Services | API communication |
+    | Hooks | Reusable logic |
+    | Helpers | Utility functions |
+endlegend
+
+@enduml

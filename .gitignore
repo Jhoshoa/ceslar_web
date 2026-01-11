@@ -1,0 +1,35 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Docker volumes and data
+docker/data/
+docker/volumes/
+mongo-data/
+
+# Dependencies (safety net)
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

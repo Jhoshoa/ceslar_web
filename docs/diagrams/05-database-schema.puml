@@ -1,0 +1,195 @@
+@startuml Database Schema
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam linetype ortho
+
+title Church Website - Database Schema (MongoDB Collections)
+
+entity "Users" as users #BBDEFB {
+    * _id : ObjectId <<PK>>
+    --
+    * auth0Id : String <<unique>>
+    * email : String <<unique>>
+    * firstName : String
+    * lastName : String
+    phone : String
+    avatar : String
+    role : Enum [admin, pastor, staff, leader, member, visitor]
+    address : Object {street, city, state, zipCode}
+    dateOfBirth : Date
+    memberSince : Date
+    isMember : Boolean
+    isActive : Boolean
+    familyMembers : [ObjectId] <<FK Users>>
+    ministries : [ObjectId] <<FK Ministries>>
+    smallGroups : [ObjectId] <<FK SmallGroups>>
+    preferences : Object {emailNotifications, smsNotifications, ...}
+    lastLogin : Date
+    --
+    createdAt : Date
+    updatedAt : Date
+}
+
+entity "Events" as events #C8E6C9 {
+    * _id : ObjectId <<PK>>
+    --
+    * title : String
+    * slug : String <<unique>>
+    * description : String
+    shortDescription : String
+    * type : Enum [service, bible_study, prayer_meeting, ...]
+    status : Enum [draft, published, cancelled, completed]
+    featuredImage : String
+    * startDate : Date
+    * endDate : Date
+    allDay : Boolean
+    location : Object {name, address, isOnline, onlineUrl}
+    registration : Object {required, maxAttendees, fee, ...}
+    attendees : [Object {user, registeredAt, status}]
+    ministry : ObjectId <<FK Ministries>>
+    organizer : ObjectId <<FK Users>>
+    isRecurring : Boolean
+    recurrence : Object {frequency, interval, daysOfWeek}
+    isFeatured : Boolean
+    isPublic : Boolean
+    --
+    createdAt : Date
+    updatedAt : Date
+}
+
+entity "Sermons" as sermons #FFE0B2 {
+    * _id : ObjectId <<PK>>
+    --
+    * title : String
+    * slug : String <<unique>>
+    description : String
+    speaker : ObjectId <<FK Users>>
+    * speakerName : String
+    category : Enum [sunday_service, wednesday_bible_study, ...]
+    series : Object {name, part, totalParts}
+    scripture : Object {book, chapter, verses, fullReference}
+    * date : Date
+    duration : Number (minutes)
+    media : Object {videoUrl, audioUrl, thumbnailUrl, youtubeId}
+    resources : [Object {title, type, url}]
+    notes : String (Rich Text)
+    tags : [String]
+    viewCount : Number
+    isPublished : Boolean
+    isFeatured : Boolean
+    membersOnly : Boolean
+    publishedAt : Date
+    --
+    createdAt : Date
+    updatedAt : Date
+}
+
+entity "Ministries" as ministries #E1BEE7 {
+    * _id : ObjectId <<PK>>
+    --
+    * name : String
+    * slug : String <<unique>>
+    * type : Enum [children, youth, young_adults, men, women, ...]
+    * description : String
+    shortDescription : String
+    featuredImage : String
+    leader : ObjectId <<FK Users>>
+    contactEmail : String
+    contactPhone : String
+    meetingSchedule : Object {day, time, frequency, location}
+    ageRange : Object {min, max, description}
+    members : [ObjectId] <<FK Users>>
+    volunteers : [Object {user, role, joinedAt}]
+    resources : [Object {title, description, url, type}]
+    isActive : Boolean
+    isFeatured : Boolean
+    displayOrder : Number
+    --
+    createdAt : Date
+    updatedAt : Date
+}
+
+entity "PrayerRequests" as prayers #FFCDD2 {
+    * _id : ObjectId <<PK>>
+    --
+    user : ObjectId <<FK Users>>
+    * name : String
+    email : String
+    * request : String
+    visibility : Enum [public, members_only, private, prayer_team]
+    category : Enum [health, family, finances, ...]
+    isAnonymous : Boolean
+    isAnswered : Boolean
+    answeredDate : Date
+    testimonyUpdate : String
+    prayerCount : Number
+    prayedBy : [Object {user, prayedAt}]
+    isApproved : Boolean
+    approvedBy : ObjectId <<FK Users>>
+    --
+    createdAt : Date
+    updatedAt : Date
+}
+
+entity "SmallGroups" as groups #B2DFDB {
+    * _id : ObjectId <<PK>>
+    --
+    * name : String
+    * slug : String <<unique>>
+    * type : Enum [bible_study, prayer, fellowship, ...]
+    * description : String
+    featuredImage : String
+    * leader : ObjectId <<FK Users>>
+    coLeaders : [ObjectId] <<FK Users>>
+    members : [Object {user, joinedAt, role}]
+    schedule : Object {dayOfWeek, time, frequency}
+    location : Object {type, address, onlineUrl}
+    demographics : Object {ageRange, gender, lifestage, hasChildcare}
+    capacity : Object {max, current, acceptingMembers}
+    currentStudy : Object {title, description, startDate, endDate}
+    ministry : ObjectId <<FK Ministries>>
+    isActive : Boolean
+    isPublic : Boolean
+    --
+    createdAt : Date
+    updatedAt : Date
+}
+
+' Relationships
+users ||--o{ events : "organizes"
+users ||--o{ events : "attends"
+users ||--o{ sermons : "speaks"
+users ||--o{ ministries : "leads"
+users ||--o{ ministries : "member of"
+users ||--o{ groups : "leads"
+users ||--o{ groups : "member of"
+users ||--o{ prayers : "submits"
+users ||--o{ prayers : "prays for"
+users }o--o{ users : "family"
+
+ministries ||--o{ events : "hosts"
+ministries ||--o{ groups : "contains"
+
+note bottom of users
+    Indexes:
+    - email (unique)
+    - auth0Id (unique)
+    - firstName, lastName, email (text search)
+end note
+
+note bottom of events
+    Indexes:
+    - slug (unique)
+    - startDate, status
+    - type
+end note
+
+note bottom of sermons
+    Indexes:
+    - slug (unique)
+    - date
+    - title, description (text search)
+    - tags
+end note
+
+@enduml

@@ -1,0 +1,121 @@
+@startuml Backend Architecture
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam packageStyle rectangle
+
+title Church Website - Backend Architecture (Node.js + Express)
+
+package "Backend API" as backend #E8F5E9 {
+
+    package "Entry Point" as entry #C8E6C9 {
+        component "index.js" as index
+        note right of index
+            - Express app setup
+            - Middleware config
+            - Route mounting
+            - Server startup
+        end note
+    }
+
+    package "Configuration" as config #A5D6A7 {
+        component "config/index.js\n(Environment)" as configIndex
+        component "config/database.js\n(MongoDB)" as dbConfig
+        component "config/auth0.js\n(JWT Validation)" as auth0Config
+    }
+
+    package "Middlewares" as middlewares #81C784 {
+        component "errorHandler" as errorHandler
+        component "validateRequest" as validateRequest
+        component "rateLimiter" as rateLimiter
+        component "Auth0 checkJwt" as checkJwt
+    }
+
+    package "Routes" as routes #C8E6C9 {
+        component "/public" as publicRoutes
+        component "/events" as eventRoutes
+        component "/sermons" as sermonRoutes
+        component "/ministries" as ministryRoutes
+        component "/users" as userRoutes
+    }
+
+    package "Controllers" as controllers #A5D6A7 {
+        component "publicController" as publicCtrl
+        component "eventController" as eventCtrl
+        component "sermonController" as sermonCtrl
+        component "ministryController" as ministryCtrl
+        component "userController" as userCtrl
+    }
+
+    package "Services" as services #81C784 {
+        component "eventService" as eventSvc
+        component "sermonService" as sermonSvc
+        component "ministryService" as ministrySvc
+        component "userService" as userSvc
+    }
+
+    package "Models (Mongoose)" as models #66BB6A {
+        component "User" as userModel
+        component "Event" as eventModel
+        component "Sermon" as sermonModel
+        component "Ministry" as ministryModel
+        component "PrayerRequest" as prayerModel
+        component "SmallGroup" as groupModel
+    }
+
+    package "Helpers" as helpers #AED581 {
+        component "logger" as logger
+        component "responseHandler" as response
+        component "asyncHandler" as async
+        component "emailService" as email
+        component "fileUpload" as upload
+        component "pagination" as pagination
+    }
+
+    package "Validators" as validators #C5E1A5 {
+        component "eventValidator" as eventVal
+        component "sermonValidator" as sermonVal
+        component "userValidator" as userVal
+    }
+
+    package "Commons" as commons #DCEDC8 {
+        component "constants" as constants
+        component "errors" as errors
+    }
+
+    database "MongoDB" as mongodb #FFE0B2
+}
+
+' Request flow
+index --> routes : Route\nRequests
+routes --> middlewares : Apply\nMiddleware
+middlewares --> controllers : Handle\nRequest
+controllers --> services : Business\nLogic
+services --> models : Data\nAccess
+models --> mongodb : CRUD
+
+' Validation flow
+routes ..> validators : Validate\nInput
+validators ..> validateRequest
+
+' Response flow
+controllers ..> response : Format\nResponse
+controllers ..> async : Wrap\nAsync
+
+' Error handling
+controllers ..> errorHandler : Catch\nErrors
+services ..> errors : Throw\nCustom Errors
+
+' Logging
+services ..> logger : Log\nOperations
+
+legend right
+    |= Layer |= Responsibility |
+    | Routes | URL mapping |
+    | Middlewares | Request processing |
+    | Controllers | Request handling |
+    | Services | Business logic |
+    | Models | Data schema |
+    | Helpers | Utilities |
+endlegend
+
+@enduml

@@ -1,0 +1,77 @@
+@startuml System Architecture
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam componentStyle rectangle
+
+title Church Website - System Architecture Overview
+
+' External actors
+actor "Visitor" as visitor #LightBlue
+actor "Member" as member #LightGreen
+actor "Admin" as admin #Orange
+
+' External services
+cloud "Auth0" as auth0 #E8E8E8 {
+    component "Authentication\nService" as authService
+    component "User\nManagement" as userMgmt
+}
+
+cloud "External Services" as external #F5F5F5 {
+    component "SMTP Server\n(Email)" as smtp
+    component "CDN\n(Future)" as cdn
+}
+
+' Main application
+package "Church Website Application" as app #E3F2FD {
+
+    package "Frontend (React + MUI)" as frontend #BBDEFB {
+        component "Public Pages" as publicPages
+        component "Member Portal" as memberPortal
+        component "Admin Dashboard" as adminDash
+    }
+
+    package "Backend (Node.js + Express)" as backend #C8E6C9 {
+        component "REST API" as api
+        component "Auth Middleware" as authMiddleware
+        component "Business Logic" as services
+    }
+
+    database "MongoDB" as mongodb #FFE0B2 {
+        collections "Users\nEvents\nSermons\nMinistries\nPrayer Requests\nSmall Groups" as collections
+    }
+}
+
+' Connections - Visitors
+visitor --> publicPages : Browse
+publicPages --> api : HTTP Requests
+
+' Connections - Members
+member --> authService : Login
+authService --> memberPortal : JWT Token
+memberPortal --> api : Authenticated\nRequests
+api --> authMiddleware : Validate Token
+authMiddleware --> authService : Verify JWT
+
+' Connections - Admin
+admin --> authService : Login
+authService --> adminDash : JWT + Admin Role
+adminDash --> api : Admin Requests
+
+' Backend connections
+api --> services : Process
+services --> collections : CRUD Operations
+services --> smtp : Send Emails
+
+' Auth0 user sync
+authService --> userMgmt : Manage Users
+api ..> userMgmt : Sync User Data
+
+legend right
+    |= Color |= Component |
+    | <#BBDEFB> | Frontend |
+    | <#C8E6C9> | Backend |
+    | <#FFE0B2> | Database |
+    | <#E8E8E8> | Auth0 |
+endlegend
+
+@enduml

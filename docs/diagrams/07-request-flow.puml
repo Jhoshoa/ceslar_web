@@ -1,0 +1,78 @@
+@startuml Request Flow
+!theme plain
+skinparam backgroundColor #FEFEFE
+
+title Church Website - API Request Flow
+
+participant "Browser" as browser #BBDEFB
+participant "Frontend\n(React)" as frontend #BBDEFB
+participant "Backend\n(Express)" as backend #C8E6C9
+participant "Auth0" as auth0 #E8E8E8
+database "MongoDB" as db #FFE0B2
+
+== Public Request (No Auth Required) ==
+
+browser -> frontend : Visit Homepage
+frontend -> backend : GET /api/v1/public/homepage
+backend -> backend : rateLimiter
+backend -> backend : publicController.getHomepageData()
+backend -> db : Query events, sermons, ministries
+db -> backend : Data
+backend -> frontend : JSON Response\n{success: true, data: {...}}
+frontend -> browser : Render Homepage
+
+== Authenticated Request ==
+
+browser -> frontend : Click "Register for Event"
+frontend -> frontend : Check isAuthenticated
+frontend -> frontend : Get token from localStorage
+frontend -> backend : POST /api/v1/events/:id/register\nAuthorization: Bearer <token>
+
+backend -> backend : rateLimiter
+backend -> backend : checkJwt middleware
+backend -> auth0 : Verify JWT\n(JWKS endpoint)
+auth0 -> backend : Token valid\n+ user info
+backend -> backend : validateRequest\n(express-validator)
+backend -> backend : eventController.registerForEvent()
+backend -> backend : eventService.registerForEvent()
+backend -> db : Update event\n(add attendee)
+db -> backend : Updated event
+backend -> frontend : JSON Response\n{success: true, message: "Registered"}
+frontend -> browser : Show success message
+
+== Request with Validation Error ==
+
+browser -> frontend : Submit invalid form
+frontend -> backend : POST /api/v1/events\n{title: "", startDate: "invalid"}
+
+backend -> backend : rateLimiter
+backend -> backend : checkJwt middleware
+backend -> backend : validateRequest
+backend -> backend : Validation fails
+backend -> frontend : 422 Response\n{success: false, errors: [...]}
+frontend -> browser : Show validation errors
+
+== Request with Auth Error ==
+
+browser -> frontend : Access protected route
+frontend -> backend : GET /api/v1/users/me\n(No token or expired)
+
+backend -> backend : checkJwt middleware
+backend -> auth0 : Verify JWT
+auth0 -> backend : Invalid/Expired token
+backend -> frontend : 401 Response\n{success: false, message: "Unauthorized"}
+frontend -> frontend : Redirect to login
+frontend -> browser : Show login page
+
+note over backend
+  Middleware Order:
+  1. CORS
+  2. Helmet (security)
+  3. Rate Limiter
+  4. Body Parser
+  5. Morgan (logging)
+  6. Routes
+  7. Error Handler
+end note
+
+@enduml

@@ -1,0 +1,41 @@
+# Dependencies
+node_modules
+npm-debug.log
+
+# Build output (we build inside Docker)
+dist
+build
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+coverage
+*.test.js
+*.spec.js
+__tests__
+
+# Documentation
+*.md
+!README.md
+
+# Docker files
+Dockerfile
+docker-compose*.yml
+.dockerignore

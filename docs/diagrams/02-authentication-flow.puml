@@ -1,0 +1,75 @@
+@startuml Authentication Flow
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam sequenceMessageAlign center
+
+title Church Website - Authentication Flow (Auth0)
+
+actor "User" as user
+participant "Frontend\n(React)" as frontend #BBDEFB
+participant "Auth0\nSDK" as sdk #E1BEE7
+participant "Auth0\nServer" as auth0 #E8E8E8
+participant "Backend\nAPI" as backend #C8E6C9
+database "MongoDB" as db #FFE0B2
+
+== Login Flow ==
+
+user -> frontend : Click "Login"
+frontend -> sdk : loginWithRedirect()
+sdk -> auth0 : Redirect to Auth0\nLogin Page
+auth0 -> user : Show Login Form
+
+user -> auth0 : Enter Credentials
+auth0 -> auth0 : Validate Credentials
+auth0 -> sdk : Redirect with\nAuthorization Code
+sdk -> auth0 : Exchange Code\nfor Tokens
+auth0 -> sdk : Return JWT Tokens\n(Access + ID Token)
+sdk -> frontend : Tokens Stored\nin localStorage
+
+== First Login - User Sync ==
+
+frontend -> backend : POST /users/sync\n{email, name, picture}\n[Authorization: Bearer <token>]
+backend -> auth0 : Verify JWT Token
+auth0 -> backend : Token Valid
+backend -> db : Create/Update User
+db -> backend : User Record
+backend -> frontend : User Profile
+
+== Authenticated API Request ==
+
+user -> frontend : Access Protected\nFeature
+frontend -> backend : GET /api/resource\n[Authorization: Bearer <token>]
+backend -> backend : Auth Middleware:\nVerify JWT
+backend -> auth0 : Validate Token\n(JWKS)
+auth0 -> backend : Token Valid +\nPermissions
+backend -> db : Query Data
+db -> backend : Data
+backend -> frontend : Response
+frontend -> user : Display Data
+
+== Logout Flow ==
+
+user -> frontend : Click "Logout"
+frontend -> sdk : logout()
+sdk -> sdk : Clear Local Tokens
+sdk -> auth0 : Redirect to\nLogout Endpoint
+auth0 -> frontend : Redirect to\nFrontend URL
+frontend -> user : Show Public\nHomepage
+
+note over sdk, auth0
+  Auth0 handles:
+  - Password hashing
+  - Session management
+  - Social login (optional)
+  - MFA (optional)
+end note
+
+note over backend
+  Backend verifies:
+  - Token signature (RS256)
+  - Token expiration
+  - Audience (API identifier)
+  - Permissions/Roles
+end note
+
+@enduml

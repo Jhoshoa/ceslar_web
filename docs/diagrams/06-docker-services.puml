@@ -1,0 +1,106 @@
+@startuml Docker Services
+!theme plain
+skinparam backgroundColor #FEFEFE
+
+title Church Website - Docker Services Architecture
+
+' Networks
+cloud "church_network" as network #E3F2FD {
+
+    node "Frontend Container" as frontendContainer #BBDEFB {
+        component "React App\n(Vite Dev Server)" as reactDev
+        component "Nginx\n(Production)" as nginx
+
+        note right of reactDev
+            Development:
+            - Port 3000
+            - Hot reload
+            - Volume mount
+        end note
+
+        note right of nginx
+            Production:
+            - Static files
+            - Gzip compression
+            - API proxy
+        end note
+    }
+
+    node "Backend Container" as backendContainer #C8E6C9 {
+        component "Node.js\nExpress API" as expressApi
+
+        note right of expressApi
+            - Port 5000
+            - nodemon (dev)
+            - node (prod)
+        end note
+    }
+
+    node "MongoDB Container" as mongoContainer #FFE0B2 {
+        database "MongoDB 7.0" as mongodb
+
+        note right of mongodb
+            - Port 27017
+            - Persistent volume
+            - Init scripts
+        end note
+    }
+
+    node "Mongo Express\n(Optional)" as mongoExpressContainer #E1BEE7 {
+        component "Admin UI" as mongoExpress
+
+        note right of mongoExpress
+            - Port 8081
+            - Profile: admin
+            - Database viewer
+        end note
+    }
+}
+
+' External
+cloud "Host Machine" as host {
+    actor "Developer" as dev
+    actor "Browser" as browser
+}
+
+cloud "Auth0 Cloud" as auth0Cloud #E8E8E8 {
+    component "Auth0\nService" as auth0
+}
+
+' Port mappings
+browser --> frontendContainer : "localhost:3000"
+browser --> backendContainer : "localhost:5000"
+dev --> mongoExpressContainer : "localhost:8081"
+dev --> mongoContainer : "localhost:27017"
+
+' Internal connections
+frontendContainer --> backendContainer : "http://backend:5000\n(internal)"
+backendContainer --> mongoContainer : "mongodb://mongodb:27017\n(internal)"
+mongoExpressContainer --> mongoContainer : "mongodb://mongodb:27017\n(internal)"
+
+' Auth0
+frontendContainer <--> auth0 : "HTTPS\n(Auth)"
+backendContainer <--> auth0 : "HTTPS\n(Verify JWT)"
+
+' Volumes
+storage "mongodb_data" as mongoVol #FFF9C4
+storage "backend_logs" as logsVol #FFF9C4
+storage "backend_uploads" as uploadsVol #FFF9C4
+storage "./frontend (bind)" as frontendVol #FFF9C4
+storage "./backend (bind)" as backendVol #FFF9C4
+
+mongoContainer --> mongoVol : "persist"
+backendContainer --> logsVol : "logs"
+backendContainer --> uploadsVol : "uploads"
+frontendContainer --> frontendVol : "dev mount"
+backendContainer --> backendVol : "dev mount"
+
+legend right
+    |= Container |= Dev Port |= Prod Port |
+    | Frontend | 3000 | 80 |
+    | Backend | 5000 | 5000 |
+    | MongoDB | 27017 | (internal) |
+    | Mongo Express | 8081 | - |
+endlegend
+
+@enduml
