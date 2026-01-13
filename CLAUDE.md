@@ -47,6 +47,7 @@ docker-compose down -v                  # Stop and remove volumes
 - **i18n**: `react-i18next` with 3 languages (ES/EN/PT) in `src/locales/`
 - **Auth**: `@auth0/auth0-react` with custom `useAuth` hook
 - **API**: Axios instance in `services/api.js`
+- **PWA**: `vite-plugin-pwa` with offline support and install prompts
 
 ### Multi-Church System
 Churches have hierarchical levels: `headquarters` → `country` → `department` → `province` → `local`
@@ -91,5 +92,18 @@ const result = await uploadImage(buffer, { folder: 'churches/logos', width: 400 
 - Sprint 4: ✅ Complete (Content & Doctrine)
 - Sprint 5: ✅ Complete (Permissions + Multi-Admin)
 - Sprint 6: ✅ Complete (Questionnaire System)
-- Sprint 7: 🔄 Next (PWA + Offline)
-- Sprint 8: See `docs/features/MULTI-CHURCH-SYSTEM-ENHANCED.md`
+- Sprint 7: ✅ Complete (PWA + Offline)
+- Sprint 8: 🔄 Next - See `docs/features/MULTI-CHURCH-SYSTEM-ENHANCED.md`
+
+## PWA Setup
+
+The app is configured as a Progressive Web App with:
+- **Service Worker**: Auto-generated via `vite-plugin-pwa`
+- **Caching Strategies**:
+  - API responses: Network First (24h cache)
+  - Images: Cache First (30 days)
+  - Google Fonts: Stale While Revalidate
+  - Cloudinary images: Cache First (30 days)
+- **Offline Fallback**: `public/offline.html`
+- **Install Prompt**: `PWAPrompts` component with localized UI
+- **Icons**: Generate with `node frontend/scripts/generate-pwa-icons.js <source-image>`

@@ -84,5 +84,15 @@
     "es": "Español",
     "en": "English",
     "pt": "Português"
+  },
+  "pwa": {
+    "installTitle": "Instalar aplicativo",
+    "installMessage": "Instale nosso app para acesso rapido e funcoes offline.",
+    "install": "Instalar",
+    "notNow": "Agora nao",
+    "updateAvailable": "Nova versao disponivel",
+    "update": "Atualizar",
+    "offlineReady": "App pronto para uso offline",
+    "offline": "Sem conexao com a internet"
   }
 }

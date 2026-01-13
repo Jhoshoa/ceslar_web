@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a365d">
+  <title>Sin conexion - Cristo Es La Respuesta</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a365d 0%, #2d4a7c 100%);
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 500px;
+    }
+
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .verse {
+      font-style: italic;
+      font-size: 1rem;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .verse-ref {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #c53030;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #9b2c2c;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .status {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .online-indicator {
+      display: none;
+      color: #68d391;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .icon {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0119 12.55M5 12.55a10.94 10.94 0 015.17-2.39M10.71 5.05A16 16 0 0122.58 9M1.42 9a15.91 15.91 0 014.7-2.88M8.53 16.11a6 6 0 016.95 0M12 20h.01"/>
+      </svg>
+    </div>
+
+    <h1>Sin conexion a internet</h1>
+
+    <p>
+      Parece que no tienes conexion a internet en este momento.
+      Verifica tu conexion e intenta nuevamente.
+    </p>
+
+    <div class="verse">
+      "Porque yo se los pensamientos que tengo acerca de vosotros,
+      dice Jehova, pensamientos de paz, y no de mal,
+      para daros el fin que esperais."
+      <span class="verse-ref">Jeremias 29:11</span>
+    </div>
+
+    <button class="btn" onclick="window.location.reload()">
+      Reintentar
+    </button>
+
+    <div class="status">
+      <span class="offline-indicator">Actualmente sin conexion</span>
+      <span class="online-indicator">Conexion restaurada - recargando...</span>
+    </div>
+  </div>
+
+  <script>
+    // Check when connection is restored
+    window.addEventListener('online', function() {
+      document.querySelector('.offline-indicator').style.display = 'none';
+      document.querySelector('.online-indicator').style.display = 'inline';
+      setTimeout(function() {
+        window.location.reload();
+      }, 1500);
+    });
+
+    window.addEventListener('offline', function() {
+      document.querySelector('.offline-indicator').style.display = 'inline';
+      document.querySelector('.online-indicator').style.display = 'none';
+    });
+
+    // Initial state
+    if (navigator.onLine) {
+      window.location.reload();
+    } else {
+      document.querySelector('.offline-indicator').style.display = 'inline';
+    }
+  </script>
+</body>
+</html>

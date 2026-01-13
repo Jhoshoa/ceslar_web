@@ -4,7 +4,10 @@
       "WebFetch(domain:cristoeslarespuesta.ueuo.com)",
       "Bash(npm run lint)",
       "Bash(node --check:*)",
-      "Bash(node -e:*)"
+      "Bash(node -e:*)",
+      "Bash(npm install vite-plugin-pwa workbox-window --save-dev)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

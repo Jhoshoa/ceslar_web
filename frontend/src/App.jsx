@@ -8,6 +8,7 @@ import DoctrinePage from './components/pages/DoctrinePage';
 import AboutPage from './components/pages/AboutPage';
 import ContactPage from './components/pages/ContactPage';
 import Loading from './components/common/Loading';
+import PWAPrompts from './components/common/PWAPrompts';
 
 // Lazy load other pages for better performance
 // import MinistriesPage from './components/pages/MinistriesPage';
@@ -23,28 +24,31 @@ function App() {
   }
 
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+    <>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        {/* Church Routes */}
-        <Route path="/churches" element={<ChurchesPage />} />
-        <Route path="/churches/:country" element={<ChurchesPage />} />
-        <Route path="/churches/:country/:department" element={<ChurchesPage />} />
-        <Route path="/churches/:country/:department/:slug" element={<ChurchDetailPage />} />
+          {/* Church Routes */}
+          <Route path="/churches" element={<ChurchesPage />} />
+          <Route path="/churches/:country" element={<ChurchesPage />} />
+          <Route path="/churches/:country/:department" element={<ChurchesPage />} />
+          <Route path="/churches/:country/:department/:slug" element={<ChurchDetailPage />} />
 
-        {/* Content Pages */}
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/doctrine" element={<DoctrinePage />} />
-        <Route path="/contact" element={<ContactPage />} />
+          {/* Content Pages */}
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/doctrine" element={<DoctrinePage />} />
+          <Route path="/contact" element={<ContactPage />} />
 
-        {/* Add more routes as pages are created */}
-        {/* <Route path="/ministries" element={<MinistriesPage />} /> */}
-        {/* <Route path="/sermons" element={<SermonsPage />} /> */}
-        {/* <Route path="/events" element={<EventsPage />} /> */}
-        {/* <Route path="/give" element={<GivePage />} /> */}
-      </Routes>
-    </Layout>
+          {/* Add more routes as pages are created */}
+          {/* <Route path="/ministries" element={<MinistriesPage />} /> */}
+          {/* <Route path="/sermons" element={<SermonsPage />} /> */}
+          {/* <Route path="/events" element={<EventsPage />} /> */}
+          {/* <Route path="/give" element={<GivePage />} /> */}
+        </Routes>
+      </Layout>
+      <PWAPrompts />
+    </>
   );
 }
 
