@@ -2,21 +2,36 @@
   "hero": {
     "title": "Christ Is The Answer",
     "subtitle": "A family of faith serving God and the community",
+    "welcome": "Welcome to Our Church",
+    "tagline": "A Place of Faith, Hope & Love",
+    "description": "Join our community as we worship together, grow in faith, and serve one another. Everyone is welcome here.",
     "cta": "Find Our Churches",
-    "watchLive": "Watch Live"
+    "planVisit": "Plan Your Visit",
+    "watchLive": "Watch Live",
+    "watchOnline": "Watch Online",
+    "sundayWorship": "Sunday Worship",
+    "wednesdayBibleStudy": "Wednesday Bible Study"
   },
   "welcome": {
     "title": "Welcome",
     "subtitle": "To Our Family of Faith",
+    "whoWeAre": "Who We Are",
+    "welcomeFamily": "Welcome to Our Family",
     "description": "We are a community of believers committed to sharing the love of Christ. We invite you to be part of our family.",
+    "description2": "Our church is a place where you can find meaningful relationships, grow in your faith, and discover your purpose. We believe that everyone has a place here, and we can't wait to meet you.",
+    "yearsMinistry": "Years of Ministry",
     "visitUs": "Visit Us",
     "learnMore": "Learn More"
   },
   "upcomingEvents": {
     "title": "Upcoming Events",
     "subtitle": "Join our activities",
+    "description": "Join us for worship, fellowship, and community gatherings. There's always something happening at our church.",
     "noEvents": "No scheduled events",
-    "viewCalendar": "View Full Calendar"
+    "viewCalendar": "View Full Calendar",
+    "viewAll": "View All Events",
+    "featured": "Featured",
+    "learnMore": "Learn More"
   },
   "latestSermon": {
     "title": "Latest Message",
@@ -24,15 +39,20 @@
     "watchNow": "Watch Now",
     "listenNow": "Listen",
     "viewAll": "View All Messages",
+    "allSermons": "All Sermons",
     "series": "Series",
     "speaker": "Speaker",
-    "date": "Date"
+    "date": "Date",
+    "scripture": "Scripture"
   },
   "ministries": {
     "title": "Our Ministries",
     "subtitle": "Serving Everyone",
     "description": "We have ministries for all ages and stages of life.",
-    "viewAll": "View All Ministries"
+    "fullDescription": "We offer a variety of ministries to help you grow in your faith and connect with others.",
+    "viewAll": "View All Ministries",
+    "exploreAll": "Explore All Ministries",
+    "learnMore": "Learn More"
   },
   "churchFinder": {
     "title": "Find Your Church",
@@ -49,17 +69,36 @@
     "subtitle": "We are here to help",
     "description": "If you have questions about faith, the church, or how you can participate, don't hesitate to contact us.",
     "contact": "Contact Us",
-    "visitUs": "Visit Us"
+    "visitUs": "Visit Us",
+    "getConnected": {
+      "title": "Get Connected",
+      "description": "Join a small group and experience authentic community. Find your place to belong and grow together.",
+      "button": "Find a Group"
+    },
+    "give": {
+      "title": "Support Our Mission",
+      "description": "Your generosity helps us serve our community, support missions, and share the love of Christ with others.",
+      "button": "Give Online"
+    }
   },
   "contact": {
     "title": "Contact Us",
     "subtitle": "We Want to Hear From You",
+    "description": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
     "name": "Name",
+    "yourName": "Your Name",
     "email": "Email",
+    "emailAddress": "Email Address",
     "phone": "Phone",
+    "subject": "Subject",
     "message": "Message",
+    "yourMessage": "Your Message",
     "send": "Send Message",
+    "sending": "Sending...",
     "address": "Address",
-    "hours": "Hours"
+    "hours": "Hours",
+    "officeHours": "Office Hours",
+    "successMessage": "Thank you for your message! We will get back to you soon.",
+    "mapLocation": "Map Location"
   }
 }

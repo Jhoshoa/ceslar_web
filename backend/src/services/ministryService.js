@@ -1,5 +1,6 @@
 const Ministry = require('../models/Ministry');
 const { NotFoundError } = require('../commons/errors');
+const { MINISTRY_SCOPE } = require('../commons/constants');
 
 class MinistryService {
   async createMinistry(ministryData) {
@@ -10,6 +11,7 @@ class MinistryService {
 
   async getMinistryById(id) {
     const ministry = await Ministry.findById(id)
+      .populate('church', 'name slug city country')
       .populate('leader', 'firstName lastName email avatar')
       .populate('members', 'firstName lastName avatar');
 
@@ -22,6 +24,7 @@ class MinistryService {
 
   async getMinistryBySlug(slug) {
     const ministry = await Ministry.findOne({ slug })
+      .populate('church', 'name slug city country')
       .populate('leader', 'firstName lastName email avatar');
 
     if (!ministry) {
@@ -55,8 +58,26 @@ class MinistryService {
     return ministry;
   }
 
+  // Build church scope filter
+  _buildChurchFilter(query) {
+    const filter = {};
+
+    if (query.church) {
+      filter.$or = [
+        { church: query.church },
+        { scope: MINISTRY_SCOPE.GLOBAL }
+      ];
+    }
+
+    if (query.scope) {
+      filter.scope = query.scope;
+    }
+
+    return filter;
+  }
+
   async listMinistries(query = {}) {
-    const filter = { isActive: true };
+    const filter = { isActive: true, ...this._buildChurchFilter(query) };
 
     if (query.type) {
       filter.type = query.type;
@@ -68,18 +89,49 @@ class MinistryService {
 
     const ministries = await Ministry.find(filter)
       .sort('displayOrder name')
+      .populate('church', 'name slug city')
       .populate('leader', 'firstName lastName');
 
     return ministries;
   }
 
-  async getFeaturedMinistries() {
-    const ministries = await Ministry.find({
+  async getFeaturedMinistries(churchId = null) {
+    const filter = {
       isActive: true,
       isFeatured: true
-    })
+    };
+
+    if (churchId) {
+      filter.$or = [
+        { church: churchId },
+        { scope: MINISTRY_SCOPE.GLOBAL }
+      ];
+    }
+
+    const ministries = await Ministry.find(filter)
       .sort('displayOrder')
       .limit(6)
+      .populate('church', 'name slug city')
+      .populate('leader', 'firstName lastName');
+
+    return ministries;
+  }
+
+  async getMinistriesByChurch(churchId, query = {}) {
+    const filter = {
+      $or: [
+        { church: churchId },
+        { scope: MINISTRY_SCOPE.GLOBAL }
+      ],
+      isActive: true
+    };
+
+    if (query.type) {
+      filter.type = query.type;
+    }
+
+    const ministries = await Ministry.find(filter)
+      .sort('displayOrder name')
       .populate('leader', 'firstName lastName');
 
     return ministries;

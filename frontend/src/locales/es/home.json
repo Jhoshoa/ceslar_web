@@ -2,21 +2,36 @@
   "hero": {
     "title": "Cristo Es La Respuesta",
     "subtitle": "Una familia de fe sirviendo a Dios y a la comunidad",
+    "welcome": "Bienvenidos a Nuestra Iglesia",
+    "tagline": "Un Lugar de Fe, Esperanza y Amor",
+    "description": "Únete a nuestra comunidad mientras adoramos juntos, crecemos en la fe y nos servimos unos a otros. Todos son bienvenidos aquí.",
     "cta": "Conoce Nuestras Iglesias",
-    "watchLive": "Ver en Vivo"
+    "planVisit": "Planifica Tu Visita",
+    "watchLive": "Ver en Vivo",
+    "watchOnline": "Ver en Línea",
+    "sundayWorship": "Culto Dominical",
+    "wednesdayBibleStudy": "Estudio Bíblico - Miércoles"
   },
   "welcome": {
     "title": "Bienvenidos",
     "subtitle": "A Nuestra Familia de Fe",
+    "whoWeAre": "Quiénes Somos",
+    "welcomeFamily": "Bienvenidos a Nuestra Familia",
     "description": "Somos una comunidad de creyentes comprometidos con compartir el amor de Cristo. Te invitamos a ser parte de nuestra familia.",
+    "description2": "Nuestra iglesia es un lugar donde puedes encontrar relaciones significativas, crecer en tu fe y descubrir tu propósito. Creemos que todos tienen un lugar aquí, y esperamos conocerte.",
+    "yearsMinistry": "Años de Ministerio",
     "visitUs": "Visítanos",
     "learnMore": "Conocer Más"
   },
   "upcomingEvents": {
     "title": "Próximos Eventos",
     "subtitle": "Únete a nuestras actividades",
+    "description": "Únete a nosotros para adoración, compañerismo y reuniones comunitarias. Siempre hay algo sucediendo en nuestra iglesia.",
     "noEvents": "No hay eventos programados",
-    "viewCalendar": "Ver Calendario Completo"
+    "viewCalendar": "Ver Calendario Completo",
+    "viewAll": "Ver Todos los Eventos",
+    "featured": "Destacado",
+    "learnMore": "Más Información"
   },
   "latestSermon": {
     "title": "Último Mensaje",
@@ -24,15 +39,20 @@
     "watchNow": "Ver Ahora",
     "listenNow": "Escuchar",
     "viewAll": "Ver Todos los Mensajes",
+    "allSermons": "Todos los Mensajes",
     "series": "Serie",
     "speaker": "Predicador",
-    "date": "Fecha"
+    "date": "Fecha",
+    "scripture": "Escritura"
   },
   "ministries": {
     "title": "Nuestros Ministerios",
     "subtitle": "Sirviendo a Todos",
     "description": "Tenemos ministerios para todas las edades y etapas de la vida.",
-    "viewAll": "Ver Todos los Ministerios"
+    "fullDescription": "Ofrecemos una variedad de ministerios para ayudarte a crecer en tu fe y conectarte con otros.",
+    "viewAll": "Ver Todos los Ministerios",
+    "exploreAll": "Explorar Todos los Ministerios",
+    "learnMore": "Más Información"
   },
   "churchFinder": {
     "title": "Encuentra Tu Iglesia",
@@ -49,17 +69,36 @@
     "subtitle": "Estamos aquí para ayudarte",
     "description": "Si tienes preguntas sobre la fe, la iglesia o cómo puedes participar, no dudes en contactarnos.",
     "contact": "Contáctanos",
-    "visitUs": "Visítanos"
+    "visitUs": "Visítanos",
+    "getConnected": {
+      "title": "Conéctate",
+      "description": "Únete a un grupo pequeño y experimenta comunidad auténtica. Encuentra tu lugar para pertenecer y crecer juntos.",
+      "button": "Encuentra un Grupo"
+    },
+    "give": {
+      "title": "Apoya Nuestra Misión",
+      "description": "Tu generosidad nos ayuda a servir a nuestra comunidad, apoyar misiones y compartir el amor de Cristo con otros.",
+      "button": "Dar en Línea"
+    }
   },
   "contact": {
     "title": "Contáctanos",
     "subtitle": "Queremos Saber de Ti",
+    "description": "¿Tienes preguntas? Nos encantaría saber de ti. Envíanos un mensaje y te responderemos lo antes posible.",
     "name": "Nombre",
+    "yourName": "Tu Nombre",
     "email": "Correo Electrónico",
+    "emailAddress": "Correo Electrónico",
     "phone": "Teléfono",
+    "subject": "Asunto",
     "message": "Mensaje",
+    "yourMessage": "Tu Mensaje",
     "send": "Enviar Mensaje",
+    "sending": "Enviando...",
     "address": "Dirección",
-    "hours": "Horarios"
+    "hours": "Horarios",
+    "officeHours": "Horario de Oficina",
+    "successMessage": "¡Gracias por tu mensaje! Te responderemos pronto.",
+    "mapLocation": "Ubicación en Mapa"
   }
 }

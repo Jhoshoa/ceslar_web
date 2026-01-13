@@ -42,7 +42,8 @@ const ministryController = {
 
   // Get featured ministries (public - for homepage)
   getFeaturedMinistries: asyncHandler(async (req, res) => {
-    const ministries = await ministryService.getFeaturedMinistries();
+    const churchId = req.query.church || null;
+    const ministries = await ministryService.getFeaturedMinistries(churchId);
     ResponseHandler.success(res, ministries);
   }),
 

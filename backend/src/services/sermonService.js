@@ -1,6 +1,7 @@
 const Sermon = require('../models/Sermon');
 const { NotFoundError } = require('../commons/errors');
 const { getPagination, getSorting, buildPaginationResult } = require('../helpers/pagination');
+const { SERMON_VISIBILITY } = require('../commons/constants');
 
 class SermonService {
   async createSermon(sermonData) {
@@ -11,6 +12,7 @@ class SermonService {
 
   async getSermonById(id, incrementView = false) {
     const sermon = await Sermon.findById(id)
+      .populate('church', 'name slug city country')
       .populate('speaker', 'firstName lastName avatar');
 
     if (!sermon) {
@@ -27,6 +29,7 @@ class SermonService {
 
   async getSermonBySlug(slug, incrementView = false) {
     const sermon = await Sermon.findOne({ slug })
+      .populate('church', 'name slug city country')
       .populate('speaker', 'firstName lastName avatar');
 
     if (!sermon) {
@@ -65,11 +68,29 @@ class SermonService {
     return sermon;
   }
 
+  // Build church visibility filter
+  _buildChurchFilter(query) {
+    const filter = {};
+
+    if (query.church) {
+      filter.$or = [
+        { church: query.church },
+        { sermonVisibility: SERMON_VISIBILITY.NETWORK_WIDE }
+      ];
+    }
+
+    if (query.sermonVisibility) {
+      filter.sermonVisibility = query.sermonVisibility;
+    }
+
+    return filter;
+  }
+
   async listSermons(query, isMember = false) {
     const { page, limit, skip } = getPagination(query);
     const sort = getSorting(query, '-date');
 
-    const filter = { isPublished: true };
+    const filter = { isPublished: true, ...this._buildChurchFilter(query) };
 
     if (!isMember) {
       filter.membersOnly = false;
@@ -100,6 +121,7 @@ class SermonService {
         .sort(sort)
         .skip(skip)
         .limit(limit)
+        .populate('church', 'name slug city')
         .populate('speaker', 'firstName lastName'),
       Sermon.countDocuments(filter)
     ]);
@@ -110,33 +132,90 @@ class SermonService {
     };
   }
 
-  async getLatestSermon() {
-    const sermon = await Sermon.findOne({
+  async getLatestSermon(churchId = null) {
+    const filter = {
       isPublished: true,
       membersOnly: false
-    })
+    };
+
+    // Include network-wide sermons or filter by church
+    if (churchId) {
+      filter.$or = [
+        { church: churchId },
+        { sermonVisibility: SERMON_VISIBILITY.NETWORK_WIDE }
+      ];
+    }
+
+    const sermon = await Sermon.findOne(filter)
       .sort('-date')
+      .populate('church', 'name slug city')
       .populate('speaker', 'firstName lastName');
 
     return sermon;
   }
 
-  async getFeaturedSermons(limit = 3) {
-    const sermons = await Sermon.find({
+  async getFeaturedSermons(limit = 3, churchId = null) {
+    const filter = {
       isPublished: true,
       membersOnly: false,
       isFeatured: true
-    })
+    };
+
+    if (churchId) {
+      filter.$or = [
+        { church: churchId },
+        { sermonVisibility: SERMON_VISIBILITY.NETWORK_WIDE }
+      ];
+    }
+
+    const sermons = await Sermon.find(filter)
       .sort('-date')
       .limit(limit)
+      .populate('church', 'name slug city')
       .populate('speaker', 'firstName lastName');
 
     return sermons;
   }
 
-  async getSermonSeries() {
+  async getSermonsByChurch(churchId, query = {}) {
+    const { page, limit, skip } = getPagination(query);
+
+    const filter = {
+      church: churchId,
+      isPublished: true
+    };
+
+    if (query.membersOnly === 'false') {
+      filter.membersOnly = false;
+    }
+
+    const [sermons, total] = await Promise.all([
+      Sermon.find(filter)
+        .sort({ date: -1 })
+        .skip(skip)
+        .limit(limit)
+        .populate('speaker', 'firstName lastName'),
+      Sermon.countDocuments(filter)
+    ]);
+
+    return {
+      sermons,
+      pagination: buildPaginationResult(page, limit, total)
+    };
+  }
+
+  async getSermonSeries(churchId = null) {
+    const match = { isPublished: true, 'series.name': { $exists: true, $ne: '' } };
+
+    if (churchId) {
+      match.$or = [
+        { church: churchId },
+        { sermonVisibility: SERMON_VISIBILITY.NETWORK_WIDE }
+      ];
+    }
+
     const series = await Sermon.aggregate([
-      { $match: { isPublished: true, 'series.name': { $exists: true, $ne: '' } } },
+      { $match: match },
       {
         $group: {
           _id: '$series.name',
@@ -151,9 +230,18 @@ class SermonService {
     return series;
   }
 
-  async getSermonTags() {
+  async getSermonTags(churchId = null) {
+    const match = { isPublished: true };
+
+    if (churchId) {
+      match.$or = [
+        { church: churchId },
+        { sermonVisibility: SERMON_VISIBILITY.NETWORK_WIDE }
+      ];
+    }
+
     const tags = await Sermon.aggregate([
-      { $match: { isPublished: true } },
+      { $match: match },
       { $unwind: '$tags' },
       {
         $group: {

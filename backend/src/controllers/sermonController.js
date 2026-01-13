@@ -43,26 +43,30 @@ const sermonController = {
 
   // Get latest sermon (public)
   getLatestSermon: asyncHandler(async (req, res) => {
-    const sermon = await sermonService.getLatestSermon();
+    const churchId = req.query.church || null;
+    const sermon = await sermonService.getLatestSermon(churchId);
     ResponseHandler.success(res, sermon);
   }),
 
   // Get featured sermons (public)
   getFeaturedSermons: asyncHandler(async (req, res) => {
     const limit = parseInt(req.query.limit, 10) || 3;
-    const sermons = await sermonService.getFeaturedSermons(limit);
+    const churchId = req.query.church || null;
+    const sermons = await sermonService.getFeaturedSermons(limit, churchId);
     ResponseHandler.success(res, sermons);
   }),
 
   // Get sermon series list
   getSermonSeries: asyncHandler(async (req, res) => {
-    const series = await sermonService.getSermonSeries();
+    const churchId = req.query.church || null;
+    const series = await sermonService.getSermonSeries(churchId);
     ResponseHandler.success(res, series);
   }),
 
   // Get popular tags
   getSermonTags: asyncHandler(async (req, res) => {
-    const tags = await sermonService.getSermonTags();
+    const churchId = req.query.church || null;
+    const tags = await sermonService.getSermonTags(churchId);
     ResponseHandler.success(res, tags);
   })
 };

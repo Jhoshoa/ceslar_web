@@ -1,6 +1,7 @@
 const Event = require('../models/Event');
+const Church = require('../models/Church');
 const logger = require('../helpers/logger');
-const { EVENT_TYPES, EVENT_STATUS } = require('../commons/constants');
+const { EVENT_TYPES, EVENT_STATUS, VISIBILITY_LEVELS } = require('../commons/constants');
 
 const getNextSunday = (weeksAhead = 0) => {
   const date = new Date();
@@ -145,7 +146,21 @@ const seed = async () => {
       return;
     }
 
-    await Event.insertMany(events);
+    // Get headquarters church to assign to events
+    const headquarters = await Church.findOne({ isHeadquarters: true });
+    if (!headquarters) {
+      logger.warn('No headquarters church found. Seeding events without church reference.');
+      await Event.insertMany(events);
+    } else {
+      // Add church reference and visibility to each event
+      const eventsWithChurch = events.map(event => ({
+        ...event,
+        church: headquarters._id,
+        visibility: VISIBILITY_LEVELS.GLOBAL // HQ events visible to all
+      }));
+      await Event.insertMany(eventsWithChurch);
+    }
+
     logger.info(`Successfully seeded ${events.length} events`);
   } catch (error) {
     logger.error('Event seeding failed:', error);

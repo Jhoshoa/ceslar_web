@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:cristoeslarespuesta.ueuo.com)"
+      "WebFetch(domain:cristoeslarespuesta.ueuo.com)",
+      "Bash(npm run lint)",
+      "Bash(node --check:*)"
     ]
   }
 }

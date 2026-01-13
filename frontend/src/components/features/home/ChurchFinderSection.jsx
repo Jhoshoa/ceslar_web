@@ -11,7 +11,7 @@ import ChurchIcon from '@mui/icons-material/Church';
 import { ChurchSelector } from '../churches';
 
 const ChurchFinderSection = () => {
-  const { t } = useTranslation('churches');
+  const { t } = useTranslation('home');
   const navigate = useNavigate();
 
   return (
@@ -42,10 +42,10 @@ const ChurchFinderSection = () => {
         <Box sx={{ textAlign: 'center', mb: 4 }}>
           <ChurchIcon sx={{ fontSize: 48, mb: 2 }} />
           <Typography variant="h3" component="h2" fontWeight={700} gutterBottom>
-            {t('title')}
+            {t('churchFinder.title')}
           </Typography>
           <Typography variant="h6" sx={{ opacity: 0.9, maxWidth: 600, mx: 'auto' }}>
-            {t('subtitle')}
+            {t('churchFinder.subtitle')}
           </Typography>
         </Box>
 
@@ -79,7 +79,7 @@ const ChurchFinderSection = () => {
               },
             }}
           >
-            Ver todas las iglesias
+            {t('churchFinder.viewAll')}
           </Button>
         </Box>
       </Container>

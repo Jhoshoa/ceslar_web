@@ -1,9 +1,11 @@
 import { Box, Container, Typography, Button, Grid } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import EventIcon from '@mui/icons-material/Event';
 
 const HeroSection = () => {
+  const { t } = useTranslation('home');
   return (
     <Box
       sx={{
@@ -62,7 +64,7 @@ const HeroSection = () => {
                 display: 'block',
               }}
             >
-              Welcome to Our Church
+              {t('hero.welcome')}
             </Typography>
             <Typography
               variant="h1"
@@ -72,11 +74,7 @@ const HeroSection = () => {
                 textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
               }}
             >
-              A Place of Faith,
-              <br />
-              <Box component="span" sx={{ color: 'secondary.light' }}>
-                Hope & Love
-              </Box>
+              {t('hero.tagline')}
             </Typography>
             <Typography
               variant="h6"
@@ -88,8 +86,7 @@ const HeroSection = () => {
                 lineHeight: 1.8,
               }}
             >
-              Join our community as we worship together, grow in faith, and
-              serve one another. Everyone is welcome here.
+              {t('hero.description')}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
               <Button
@@ -105,7 +102,7 @@ const HeroSection = () => {
                   fontSize: '1.1rem',
                 }}
               >
-                Plan Your Visit
+                {t('hero.planVisit')}
               </Button>
               <Button
                 variant="outlined"
@@ -127,7 +124,7 @@ const HeroSection = () => {
                   },
                 }}
               >
-                Watch Online
+                {t('hero.watchOnline')}
               </Button>
             </Box>
           </Grid>
@@ -157,7 +154,7 @@ const HeroSection = () => {
               color="secondary.main"
               fontWeight={600}
             >
-              Sunday Worship
+              {t('hero.sundayWorship')}
             </Typography>
             <Typography variant="h5" color="primary.main" fontWeight={700}>
               10:00 AM
@@ -176,7 +173,7 @@ const HeroSection = () => {
               color="secondary.main"
               fontWeight={600}
             >
-              Wednesday Bible Study
+              {t('hero.wednesdayBibleStudy')}
             </Typography>
             <Typography variant="h5" color="primary.main" fontWeight={700}>
               7:00 PM

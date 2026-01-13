@@ -2,21 +2,36 @@
   "hero": {
     "title": "Cristo É a Resposta",
     "subtitle": "Uma família de fé servindo a Deus e à comunidade",
+    "welcome": "Bem-vindos à Nossa Igreja",
+    "tagline": "Um Lugar de Fé, Esperança e Amor",
+    "description": "Junte-se à nossa comunidade enquanto adoramos juntos, crescemos na fé e servimos uns aos outros. Todos são bem-vindos aqui.",
     "cta": "Conheça Nossas Igrejas",
-    "watchLive": "Assistir ao Vivo"
+    "planVisit": "Planeje Sua Visita",
+    "watchLive": "Assistir ao Vivo",
+    "watchOnline": "Assistir Online",
+    "sundayWorship": "Culto de Domingo",
+    "wednesdayBibleStudy": "Estudo Bíblico - Quarta"
   },
   "welcome": {
     "title": "Bem-vindos",
     "subtitle": "À Nossa Família de Fé",
+    "whoWeAre": "Quem Somos",
+    "welcomeFamily": "Bem-vindos à Nossa Família",
     "description": "Somos uma comunidade de crentes comprometidos em compartilhar o amor de Cristo. Convidamos você a fazer parte da nossa família.",
+    "description2": "Nossa igreja é um lugar onde você pode encontrar relacionamentos significativos, crescer na sua fé e descobrir seu propósito. Acreditamos que todos têm um lugar aqui, e mal podemos esperar para conhecê-lo.",
+    "yearsMinistry": "Anos de Ministério",
     "visitUs": "Visite-nos",
     "learnMore": "Saiba Mais"
   },
   "upcomingEvents": {
     "title": "Próximos Eventos",
     "subtitle": "Participe das nossas atividades",
+    "description": "Junte-se a nós para adoração, comunhão e encontros comunitários. Sempre há algo acontecendo em nossa igreja.",
     "noEvents": "Nenhum evento agendado",
-    "viewCalendar": "Ver Calendário Completo"
+    "viewCalendar": "Ver Calendário Completo",
+    "viewAll": "Ver Todos os Eventos",
+    "featured": "Destaque",
+    "learnMore": "Saiba Mais"
   },
   "latestSermon": {
     "title": "Última Mensagem",
@@ -24,15 +39,20 @@
     "watchNow": "Assistir Agora",
     "listenNow": "Ouvir",
     "viewAll": "Ver Todas as Mensagens",
+    "allSermons": "Todas as Mensagens",
     "series": "Série",
     "speaker": "Pregador",
-    "date": "Data"
+    "date": "Data",
+    "scripture": "Escritura"
   },
   "ministries": {
     "title": "Nossos Ministérios",
     "subtitle": "Servindo a Todos",
     "description": "Temos ministérios para todas as idades e fases da vida.",
-    "viewAll": "Ver Todos os Ministérios"
+    "fullDescription": "Oferecemos uma variedade de ministérios para ajudá-lo a crescer na sua fé e conectar-se com outros.",
+    "viewAll": "Ver Todos os Ministérios",
+    "exploreAll": "Explorar Todos os Ministérios",
+    "learnMore": "Saiba Mais"
   },
   "churchFinder": {
     "title": "Encontre Sua Igreja",
@@ -49,17 +69,36 @@
     "subtitle": "Estamos aqui para ajudar",
     "description": "Se você tem perguntas sobre a fé, a igreja ou como pode participar, não hesite em nos contatar.",
     "contact": "Fale Conosco",
-    "visitUs": "Visite-nos"
+    "visitUs": "Visite-nos",
+    "getConnected": {
+      "title": "Conecte-se",
+      "description": "Junte-se a um pequeno grupo e experimente comunidade autêntica. Encontre seu lugar para pertencer e crescer juntos.",
+      "button": "Encontre um Grupo"
+    },
+    "give": {
+      "title": "Apoie Nossa Missão",
+      "description": "Sua generosidade nos ajuda a servir nossa comunidade, apoiar missões e compartilhar o amor de Cristo com outros.",
+      "button": "Doar Online"
+    }
   },
   "contact": {
     "title": "Fale Conosco",
     "subtitle": "Queremos Ouvir Você",
+    "description": "Tem perguntas? Adoraríamos ouvir de você. Envie-nos uma mensagem e responderemos o mais rápido possível.",
     "name": "Nome",
+    "yourName": "Seu Nome",
     "email": "E-mail",
+    "emailAddress": "Endereço de E-mail",
     "phone": "Telefone",
+    "subject": "Assunto",
     "message": "Mensagem",
+    "yourMessage": "Sua Mensagem",
     "send": "Enviar Mensagem",
+    "sending": "Enviando...",
     "address": "Endereço",
-    "hours": "Horários"
+    "hours": "Horários",
+    "officeHours": "Horário de Atendimento",
+    "successMessage": "Obrigado pela sua mensagem! Retornaremos em breve.",
+    "mapLocation": "Localização no Mapa"
   }
 }

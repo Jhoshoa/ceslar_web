@@ -9,6 +9,7 @@ import {
   Alert,
   Snackbar,
 } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -18,6 +19,7 @@ import { SectionTitle } from '../../common';
 import { CHURCH_INFO } from '../../../commons/constants';
 
 const ContactSection = () => {
+  const { t } = useTranslation('home');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,7 +42,7 @@ const ContactSection = () => {
       setLoading(false);
       setSnackbar({
         open: true,
-        message: 'Thank you for your message! We will get back to you soon.',
+        message: t('contact.successMessage'),
         severity: 'success',
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -54,22 +56,22 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: LocationOnIcon,
-      title: 'Address',
+      title: t('contact.address'),
       content: `${CHURCH_INFO.address.street}, ${CHURCH_INFO.address.city}, ${CHURCH_INFO.address.state} ${CHURCH_INFO.address.zipCode}`,
     },
     {
       icon: PhoneIcon,
-      title: 'Phone',
+      title: t('contact.phone'),
       content: CHURCH_INFO.phone,
     },
     {
       icon: EmailIcon,
-      title: 'Email',
+      title: t('contact.email'),
       content: CHURCH_INFO.email,
     },
     {
       icon: AccessTimeIcon,
-      title: 'Office Hours',
+      title: t('contact.officeHours'),
       content: CHURCH_INFO.officeHours,
     },
   ];
@@ -78,8 +80,8 @@ const ContactSection = () => {
     <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">
         <SectionTitle
-          title="Get In Touch"
-          subtitle="Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+          title={t('contact.title')}
+          subtitle={t('contact.description')}
         />
 
         <Grid container spacing={6}>
@@ -99,7 +101,7 @@ const ContactSection = () => {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Your Name"
+                    label={t('contact.yourName')}
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -109,7 +111,7 @@ const ContactSection = () => {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Email Address"
+                    label={t('contact.emailAddress')}
                     name="email"
                     type="email"
                     value={formData.email}
@@ -120,7 +122,7 @@ const ContactSection = () => {
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
-                    label="Subject"
+                    label={t('contact.subject')}
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
@@ -129,7 +131,7 @@ const ContactSection = () => {
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
-                    label="Your Message"
+                    label={t('contact.yourMessage')}
                     name="message"
                     multiline
                     rows={5}
@@ -148,7 +150,7 @@ const ContactSection = () => {
                     endIcon={<SendIcon />}
                     sx={{ minWidth: 200 }}
                   >
-                    {loading ? 'Sending...' : 'Send Message'}
+                    {loading ? t('contact.sending') : t('contact.send')}
                   </Button>
                 </Grid>
               </Grid>
@@ -208,7 +210,7 @@ const ContactSection = () => {
                   justifyContent: 'center',
                 }}
               >
-                <Typography color="text.secondary">Map Location</Typography>
+                <Typography color="text.secondary">{t('contact.mapLocation')}</Typography>
               </Box>
             </Box>
           </Grid>

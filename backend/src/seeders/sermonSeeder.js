@@ -1,6 +1,7 @@
 const Sermon = require('../models/Sermon');
+const Church = require('../models/Church');
 const logger = require('../helpers/logger');
-const { SERMON_CATEGORIES } = require('../commons/constants');
+const { SERMON_CATEGORIES, SERMON_VISIBILITY } = require('../commons/constants');
 
 const sermons = [
   {
@@ -112,7 +113,21 @@ const seed = async () => {
       return;
     }
 
-    await Sermon.insertMany(sermons);
+    // Get headquarters church to assign to sermons
+    const headquarters = await Church.findOne({ isHeadquarters: true });
+    if (!headquarters) {
+      logger.warn('No headquarters church found. Seeding sermons without church reference.');
+      await Sermon.insertMany(sermons);
+    } else {
+      // Add church reference and visibility to each sermon
+      const sermonsWithChurch = sermons.map(sermon => ({
+        ...sermon,
+        church: headquarters._id,
+        sermonVisibility: SERMON_VISIBILITY.NETWORK_WIDE // HQ sermons visible to all
+      }));
+      await Sermon.insertMany(sermonsWithChurch);
+    }
+
     logger.info(`Successfully seeded ${sermons.length} sermons`);
   } catch (error) {
     logger.error('Sermon seeding failed:', error);

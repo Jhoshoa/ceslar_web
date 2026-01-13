@@ -1,5 +1,6 @@
 import { Box, Container, Typography, Card, CardContent, Button, Grid, Chip } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -38,7 +39,7 @@ const mockEvents = [
   },
 ];
 
-const EventCard = ({ event, featured = false }) => {
+const EventCard = ({ event, featured = false, t }) => {
   return (
     <Card
       sx={{
@@ -55,7 +56,7 @@ const EventCard = ({ event, featured = false }) => {
     >
       {featured && (
         <Chip
-          label="Featured"
+          label={t('upcomingEvents.featured')}
           color="secondary"
           size="small"
           sx={{
@@ -118,7 +119,7 @@ const EventCard = ({ event, featured = false }) => {
           component={RouterLink}
           to={`/events/${event.id}`}
         >
-          Learn More
+          {t('upcomingEvents.learnMore')}
         </Button>
       </Box>
     </Card>
@@ -126,18 +127,20 @@ const EventCard = ({ event, featured = false }) => {
 };
 
 const UpcomingEvents = ({ events = mockEvents }) => {
+  const { t } = useTranslation('home');
+
   return (
     <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'white' }}>
       <Container maxWidth="lg">
         <SectionTitle
-          title="Upcoming Events"
-          subtitle="Join us for worship, fellowship, and community gatherings. There's always something happening at our church."
+          title={t('upcomingEvents.title')}
+          subtitle={t('upcomingEvents.description')}
         />
 
         <Grid container spacing={4}>
           {events.slice(0, 3).map((event) => (
             <Grid item xs={12} md={4} key={event.id}>
-              <EventCard event={event} featured={event.isFeatured} />
+              <EventCard event={event} featured={event.isFeatured} t={t} />
             </Grid>
           ))}
         </Grid>
@@ -152,7 +155,7 @@ const UpcomingEvents = ({ events = mockEvents }) => {
             startIcon={<CalendarMonthIcon />}
             endIcon={<ArrowForwardIcon />}
           >
-            View All Events
+            {t('upcomingEvents.viewAll')}
           </Button>
         </Box>
       </Container>

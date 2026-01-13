@@ -1,8 +1,11 @@
 import { Box, Container, Typography, Button, Grid, Avatar } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const WelcomeSection = () => {
+  const { t } = useTranslation('home');
+
   return (
     <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">
@@ -59,7 +62,7 @@ const WelcomeSection = () => {
                   50+
                 </Typography>
                 <Typography variant="body2">
-                  Years of Ministry
+                  {t('welcome.yearsMinistry')}
                 </Typography>
               </Box>
             </Box>
@@ -75,21 +78,16 @@ const WelcomeSection = () => {
                 fontWeight: 600,
               }}
             >
-              Who We Are
+              {t('welcome.whoWeAre')}
             </Typography>
             <Typography variant="h2" color="primary.main" sx={{ mb: 3, mt: 1 }}>
-              Welcome to Our Family
+              {t('welcome.welcomeFamily')}
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-              We are a vibrant, welcoming community of believers committed to
-              loving God, loving people, and making disciples. Whether you're
-              exploring faith for the first time or looking for a church home,
-              we invite you to join us.
+              {t('welcome.description')}
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-              Our church is a place where you can find meaningful relationships,
-              grow in your faith, and discover your purpose. We believe that
-              everyone has a place here, and we can't wait to meet you.
+              {t('welcome.description2')}
             </Typography>
 
             {/* Pastor info */}
@@ -133,7 +131,7 @@ const WelcomeSection = () => {
               to="/about"
               endIcon={<ArrowForwardIcon />}
             >
-              Learn More About Us
+              {t('welcome.learnMore')}
             </Button>
           </Grid>
         </Grid>

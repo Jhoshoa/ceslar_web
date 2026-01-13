@@ -1,9 +1,12 @@
 import { Box, Container, Typography, Button, Grid } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
 const CTASection = () => {
+  const { t } = useTranslation('home');
+
   return (
     <Box sx={{ py: { xs: 8, md: 10 }, backgroundColor: 'white' }}>
       <Container maxWidth="lg">
@@ -26,14 +29,13 @@ const CTASection = () => {
                 sx={{ fontSize: 60, color: 'secondary.main', mb: 2 }}
               />
               <Typography variant="h3" color="white" gutterBottom>
-                Get Connected
+                {t('cta.getConnected.title')}
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ color: 'rgba(255,255,255,0.9)', mb: 4 }}
               >
-                Join a small group and experience authentic community.
-                Find your place to belong and grow together.
+                {t('cta.getConnected.description')}
               </Typography>
               <Button
                 variant="contained"
@@ -43,7 +45,7 @@ const CTASection = () => {
                 to="/connect"
                 sx={{ alignSelf: 'center' }}
               >
-                Find a Group
+                {t('cta.getConnected.button')}
               </Button>
             </Box>
           </Grid>
@@ -66,14 +68,13 @@ const CTASection = () => {
                 sx={{ fontSize: 60, color: 'white', mb: 2 }}
               />
               <Typography variant="h3" color="white" gutterBottom>
-                Support Our Mission
+                {t('cta.give.title')}
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ color: 'rgba(255,255,255,0.9)', mb: 4 }}
               >
-                Your generosity helps us serve our community, support missions,
-                and share the love of Christ with others.
+                {t('cta.give.description')}
               </Typography>
               <Button
                 variant="contained"
@@ -89,7 +90,7 @@ const CTASection = () => {
                   },
                 }}
               >
-                Give Online
+                {t('cta.give.button')}
               </Button>
             </Box>
           </Grid>

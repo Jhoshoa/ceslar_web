@@ -43,13 +43,15 @@ const eventController = {
   // Get upcoming events (public)
   getUpcomingEvents: asyncHandler(async (req, res) => {
     const limit = parseInt(req.query.limit, 10) || 5;
-    const events = await eventService.getUpcomingEvents(limit);
+    const churchId = req.query.church || null;
+    const events = await eventService.getUpcomingEvents(limit, churchId);
     ResponseHandler.success(res, events);
   }),
 
   // Get featured events (public)
   getFeaturedEvents: asyncHandler(async (req, res) => {
-    const events = await eventService.getFeaturedEvents();
+    const churchId = req.query.church || null;
+    const events = await eventService.getFeaturedEvents(churchId);
     ResponseHandler.success(res, events);
   }),
 

@@ -1,5 +1,6 @@
 import { Box, Container, Typography, Button, Grid, IconButton } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -18,6 +19,8 @@ const mockSermon = {
 };
 
 const LatestSermon = ({ sermon = mockSermon }) => {
+  const { t } = useTranslation('home');
+
   return (
     <Box
       sx={{
@@ -111,7 +114,7 @@ const LatestSermon = ({ sermon = mockSermon }) => {
                 fontWeight: 600,
               }}
             >
-              Latest Message
+              {t('latestSermon.title')}
             </Typography>
             <Typography
               variant="h2"
@@ -125,7 +128,7 @@ const LatestSermon = ({ sermon = mockSermon }) => {
                 variant="subtitle2"
                 sx={{ color: 'rgba(255,255,255,0.7)', mb: 2 }}
               >
-                Series: {sermon.series.name}
+                {t('latestSermon.series')}: {sermon.series.name}
               </Typography>
             )}
 
@@ -139,7 +142,7 @@ const LatestSermon = ({ sermon = mockSermon }) => {
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 4 }}>
               <Box>
                 <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.6)' }}>
-                  Speaker
+                  {t('latestSermon.speaker')}
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'white', fontWeight: 600 }}>
                   {sermon.speakerName}
@@ -147,7 +150,7 @@ const LatestSermon = ({ sermon = mockSermon }) => {
               </Box>
               <Box>
                 <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.6)' }}>
-                  Date
+                  {t('latestSermon.date')}
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'white', fontWeight: 600 }}>
                   {formatDate(sermon.date)}
@@ -156,7 +159,7 @@ const LatestSermon = ({ sermon = mockSermon }) => {
               {sermon.scripture && (
                 <Box>
                   <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.6)' }}>
-                    Scripture
+                    {t('latestSermon.scripture')}
                   </Typography>
                   <Typography variant="body1" sx={{ color: 'white', fontWeight: 600 }}>
                     {sermon.scripture.fullReference}
@@ -172,7 +175,7 @@ const LatestSermon = ({ sermon = mockSermon }) => {
                 size="large"
                 startIcon={<PlayCircleFilledIcon />}
               >
-                Watch Now
+                {t('latestSermon.watchNow')}
               </Button>
               <Button
                 variant="outlined"
@@ -187,7 +190,7 @@ const LatestSermon = ({ sermon = mockSermon }) => {
                   },
                 }}
               >
-                Listen
+                {t('latestSermon.listenNow')}
               </Button>
               <Button
                 variant="text"
@@ -202,7 +205,7 @@ const LatestSermon = ({ sermon = mockSermon }) => {
                   },
                 }}
               >
-                All Sermons
+                {t('latestSermon.allSermons')}
               </Button>
             </Box>
           </Grid>

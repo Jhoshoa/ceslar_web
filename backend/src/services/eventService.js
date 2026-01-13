@@ -1,6 +1,7 @@
 const Event = require('../models/Event');
 const { NotFoundError, BadRequestError } = require('../commons/errors');
 const { getPagination, getSorting, buildPaginationResult } = require('../helpers/pagination');
+const { VISIBILITY_LEVELS } = require('../commons/constants');
 
 class EventService {
   async createEvent(eventData) {
@@ -11,6 +12,7 @@ class EventService {
 
   async getEventById(id) {
     const event = await Event.findById(id)
+      .populate('church', 'name slug city country')
       .populate('ministry', 'name type')
       .populate('organizer', 'firstName lastName email');
 
@@ -23,6 +25,7 @@ class EventService {
 
   async getEventBySlug(slug) {
     const event = await Event.findOne({ slug })
+      .populate('church', 'name slug city country')
       .populate('ministry', 'name type')
       .populate('organizer', 'firstName lastName email');
 
@@ -57,11 +60,32 @@ class EventService {
     return event;
   }
 
+  // Build church visibility filter for public queries
+  _buildChurchFilter(query) {
+    const filter = {};
+
+    // Filter by specific church
+    if (query.church) {
+      filter.$or = [
+        { church: query.church },
+        { sharedWithChurches: query.church },
+        { visibility: VISIBILITY_LEVELS.GLOBAL }
+      ];
+    }
+
+    // Filter by visibility level
+    if (query.visibility) {
+      filter.visibility = query.visibility;
+    }
+
+    return filter;
+  }
+
   async listEvents(query) {
     const { page, limit, skip } = getPagination(query);
     const sort = getSorting(query, 'startDate');
 
-    const filter = {};
+    const filter = { ...this._buildChurchFilter(query) };
 
     if (query.type) {
       filter.type = query.type;
@@ -89,6 +113,7 @@ class EventService {
         .sort(sort)
         .skip(skip)
         .limit(limit)
+        .populate('church', 'name slug city')
         .populate('ministry', 'name'),
       Event.countDocuments(filter)
     ]);
@@ -99,30 +124,83 @@ class EventService {
     };
   }
 
-  async getUpcomingEvents(limit = 5) {
-    const events = await Event.find({
+  async getUpcomingEvents(limit = 5, churchId = null) {
+    const filter = {
       startDate: { $gte: new Date() },
       status: 'published',
       isPublic: true
-    })
+    };
+
+    // Filter by church or include global events
+    if (churchId) {
+      filter.$or = [
+        { church: churchId },
+        { sharedWithChurches: churchId },
+        { visibility: VISIBILITY_LEVELS.GLOBAL }
+      ];
+    }
+
+    const events = await Event.find(filter)
       .sort('startDate')
       .limit(limit)
+      .populate('church', 'name slug city')
       .populate('ministry', 'name');
 
     return events;
   }
 
-  async getFeaturedEvents() {
-    const events = await Event.find({
+  async getFeaturedEvents(churchId = null) {
+    const filter = {
       startDate: { $gte: new Date() },
       status: 'published',
       isPublic: true,
       isFeatured: true
-    })
+    };
+
+    if (churchId) {
+      filter.$or = [
+        { church: churchId },
+        { sharedWithChurches: churchId },
+        { visibility: VISIBILITY_LEVELS.GLOBAL }
+      ];
+    }
+
+    const events = await Event.find(filter)
       .sort('startDate')
-      .limit(3);
+      .limit(3)
+      .populate('church', 'name slug city');
 
     return events;
+  }
+
+  async getEventsByChurch(churchId, query = {}) {
+    const { page, limit, skip } = getPagination(query);
+
+    const filter = {
+      $or: [
+        { church: churchId },
+        { sharedWithChurches: churchId }
+      ]
+    };
+
+    if (query.upcoming === 'true') {
+      filter.startDate = { $gte: new Date() };
+      filter.status = 'published';
+    }
+
+    const [events, total] = await Promise.all([
+      Event.find(filter)
+        .sort({ startDate: 1 })
+        .skip(skip)
+        .limit(limit)
+        .populate('ministry', 'name'),
+      Event.countDocuments(filter)
+    ]);
+
+    return {
+      events,
+      pagination: buildPaginationResult(page, limit, total)
+    };
   }
 
   async registerForEvent(eventId, userId) {

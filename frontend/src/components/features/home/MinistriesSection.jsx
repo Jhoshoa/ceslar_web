@@ -1,5 +1,6 @@
 import { Box, Container, Typography, Card, CardContent, Button, Grid, Avatar } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import ChildCareIcon from '@mui/icons-material/ChildCare';
 import GroupsIcon from '@mui/icons-material/Groups';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -55,7 +56,7 @@ const mockMinistries = [
   },
 ];
 
-const MinistryCard = ({ ministry }) => {
+const MinistryCard = ({ ministry, t }) => {
   const IconComponent = ministry.icon;
 
   return (
@@ -99,7 +100,7 @@ const MinistryCard = ({ ministry }) => {
           to={`/ministries/${ministry.id}`}
           endIcon={<ArrowForwardIcon />}
         >
-          Learn More
+          {t('ministries.learnMore')}
         </Button>
       </CardContent>
     </Card>
@@ -107,18 +108,20 @@ const MinistryCard = ({ ministry }) => {
 };
 
 const MinistriesSection = ({ ministries = mockMinistries }) => {
+  const { t } = useTranslation('home');
+
   return (
     <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">
         <SectionTitle
-          title="Our Ministries"
-          subtitle="We offer a variety of ministries to help you grow in your faith and connect with others."
+          title={t('ministries.title')}
+          subtitle={t('ministries.fullDescription')}
         />
 
         <Grid container spacing={4}>
           {ministries.slice(0, 6).map((ministry) => (
             <Grid item xs={12} sm={6} md={4} key={ministry.id}>
-              <MinistryCard ministry={ministry} />
+              <MinistryCard ministry={ministry} t={t} />
             </Grid>
           ))}
         </Grid>
@@ -132,7 +135,7 @@ const MinistriesSection = ({ ministries = mockMinistries }) => {
             to="/ministries"
             endIcon={<ArrowForwardIcon />}
           >
-            Explore All Ministries
+            {t('ministries.exploreAll')}
           </Button>
         </Box>
       </Container>
