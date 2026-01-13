@@ -7,6 +7,7 @@ import {
   MinistriesSection,
   CTASection,
   ContactSection,
+  ChurchFinderSection,
 } from '../features/home';
 
 const HomePage = () => {
@@ -17,6 +18,9 @@ const HomePage = () => {
 
       {/* Welcome message from pastor */}
       <WelcomeSection />
+
+      {/* Church Finder */}
+      <ChurchFinderSection />
 
       {/* Upcoming events preview */}
       <UpcomingEvents />

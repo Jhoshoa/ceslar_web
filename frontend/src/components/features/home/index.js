@@ -5,3 +5,4 @@ export { default as LatestSermon } from './LatestSermon';
 export { default as MinistriesSection } from './MinistriesSection';
 export { default as CTASection } from './CTASection';
 export { default as ContactSection } from './ContactSection';
+export { default as ChurchFinderSection } from './ChurchFinderSection';

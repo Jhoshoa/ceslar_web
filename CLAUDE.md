@@ -76,18 +76,6 @@ Use helper: `const { uploadImage } = require('../helpers/cloudinary')`
 const result = await uploadImage(buffer, { folder: 'churches/logos', width: 400 });
 ```
 
-## Current Status
-
-### Completed
-- Sprint 0: Migration preparation (Church model, constants, seeders)
-- Sprint 1: Foundation + i18n (translations, LanguageSwitcher, Cloudinary, Church API)
-
-### In Progress
-- Sprint 2: Church Navigation (cascading dropdowns, church finder, map integration)
-
-### Pending
-- Sprint 3-8: See `docs/features/MULTI-CHURCH-SYSTEM-ENHANCED.md`
-
 ## Important Files
 
 - `docs/features/MULTI-CHURCH-SYSTEM-ENHANCED.md` - Full implementation plan
@@ -95,7 +83,9 @@ const result = await uploadImage(buffer, { folder: 'churches/logos', width: 400 
 - `frontend/src/locales/` - Translation files (ES/EN/PT)
 - `backend/.env.example` - Required environment variables
 
-# Current Status
-  - Sprint 0: ✅ Complete (Migration Preparation)
-  - Sprint 1: ✅ Complete (Foundation + i18n)
-  - Sprint 2: 🔄 In Progress (Church Navigation)
+## Current Status
+- Sprint 0: ✅ Complete (Migration Preparation)
+- Sprint 1: ✅ Complete (Foundation + i18n)
+- Sprint 2: ✅ Complete (Church Navigation)
+- Sprint 3: 🔄 Next (Existing Code Migration)
+- Sprint 4-8: See `docs/features/MULTI-CHURCH-SYSTEM-ENHANCED.md`

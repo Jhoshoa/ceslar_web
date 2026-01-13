@@ -83,6 +83,22 @@ export const usersApi = {
   getDirectory: (params) => api.get('/users/directory', { params }),
 };
 
+// Churches API
+export const churchesApi = {
+  getAll: (params) => api.get('/churches', { params }),
+  getById: (id) => api.get(`/churches/${id}`),
+  getBySlug: (slug) => api.get(`/churches/slug/${slug}`),
+  getHeadquarters: () => api.get('/churches/headquarters'),
+  getGrouped: () => api.get('/churches/grouped'),
+  getCountries: () => api.get('/churches/countries'),
+  getDepartments: (country) => api.get(`/churches/countries/${encodeURIComponent(country)}/departments`),
+  getCities: (country, department) => api.get(`/churches/countries/${encodeURIComponent(country)}/departments/${encodeURIComponent(department)}/cities`),
+  getByCountry: (country) => api.get(`/churches/country/${encodeURIComponent(country)}`),
+  getNearby: (lat, lng, maxDistance = 50) => api.get('/churches/nearby', { params: { lat, lng, maxDistance } }),
+  getHierarchy: (id) => api.get(`/churches/${id}/hierarchy`),
+  getChildren: (id) => api.get(`/churches/${id}/children`),
+};
+
 // Set auth token (called after Auth0 login)
 export const setAuthToken = (token) => {
   if (token) {

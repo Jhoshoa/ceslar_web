@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import Layout from './components/layout/Layout';
 import HomePage from './components/pages/HomePage';
+import ChurchesPage from './components/pages/ChurchesPage';
+import ChurchDetailPage from './components/pages/ChurchDetailPage';
 import Loading from './components/common/Loading';
 
 // Lazy load other pages for better performance
@@ -23,6 +25,13 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
+
+        {/* Church Routes */}
+        <Route path="/churches" element={<ChurchesPage />} />
+        <Route path="/churches/:country" element={<ChurchesPage />} />
+        <Route path="/churches/:country/:department" element={<ChurchesPage />} />
+        <Route path="/churches/:country/:department/:slug" element={<ChurchDetailPage />} />
+
         {/* Add more routes as pages are created */}
         {/* <Route path="/about" element={<AboutPage />} /> */}
         {/* <Route path="/ministries" element={<MinistriesPage />} /> */}
