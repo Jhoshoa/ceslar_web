@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   AppBar,
   Box,
@@ -21,16 +22,26 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import ChurchIcon from '@mui/icons-material/Church';
 import PersonIcon from '@mui/icons-material/Person';
 import { useAuth } from '../../hooks/useAuth';
 import { NAV_ITEMS, APP_NAME } from '../../commons/constants';
+import { LanguageSwitcher } from '../common';
+import ceslarLogo from '../../assets/images/ceslar_logo.svg';
 
 const Header = () => {
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const location = useLocation();
   const { isAuthenticated, user, login, logout } = useAuth();
+
+  // Get translated nav item label
+  const getNavLabel = (item) => {
+    const key = `nav.${item.key || item.label.toLowerCase()}`;
+    const translated = t(key);
+    // Return original label if translation key doesn't exist
+    return translated !== key ? translated : item.label;
+  };
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -57,10 +68,12 @@ const Header = () => {
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <ChurchIcon color="primary" />
-          <Typography variant="h6" color="primary.main" fontWeight={700}>
-            {APP_NAME}
-          </Typography>
+          <Box
+            component="img"
+            src={ceslarLogo}
+            alt={APP_NAME}
+            sx={{ height: 36, width: 'auto' }}
+          />
         </Box>
         <IconButton onClick={handleDrawerToggle}>
           <CloseIcon />
@@ -85,13 +98,16 @@ const Header = () => {
                 },
               }}
             >
-              <ListItemText primary={item.label} />
+              <ListItemText primary={getNavLabel(item)} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
-      <Box sx={{ p: 2 }}>
+      <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', gap: 1 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
+          <LanguageSwitcher variant="text" />
+        </Box>
         {isAuthenticated ? (
           <Button
             fullWidth
@@ -102,7 +118,7 @@ const Header = () => {
               logout();
             }}
           >
-            Logout
+            {t('nav.logout')}
           </Button>
         ) : (
           <Button
@@ -114,7 +130,7 @@ const Header = () => {
               login();
             }}
           >
-            Member Login
+            {t('nav.login')}
           </Button>
         )}
       </Box>
@@ -143,18 +159,12 @@ const Header = () => {
               color: 'inherit',
             }}
           >
-            <ChurchIcon color="primary" sx={{ fontSize: 32 }} />
-            <Typography
-              variant="h5"
-              noWrap
-              sx={{
-                fontFamily: '"Playfair Display", serif',
-                fontWeight: 700,
-                color: 'primary.main',
-              }}
-            >
-              {APP_NAME}
-            </Typography>
+            <Box
+              component="img"
+              src={ceslarLogo}
+              alt={APP_NAME}
+              sx={{ height: 48, width: 'auto' }}
+            />
           </Box>
 
           {/* Mobile menu button */}
@@ -182,18 +192,12 @@ const Header = () => {
               color: 'inherit',
             }}
           >
-            <ChurchIcon color="primary" sx={{ fontSize: 28 }} />
-            <Typography
-              variant="h6"
-              noWrap
-              sx={{
-                fontFamily: '"Playfair Display", serif',
-                fontWeight: 700,
-                color: 'primary.main',
-              }}
-            >
-              {APP_NAME}
-            </Typography>
+            <Box
+              component="img"
+              src={ceslarLogo}
+              alt={APP_NAME}
+              sx={{ height: 36, width: 'auto' }}
+            />
           </Box>
 
           {/* Desktop Navigation */}
@@ -226,13 +230,18 @@ const Header = () => {
                   },
                 }}
               >
-                {item.label}
+                {getNavLabel(item)}
               </Button>
             ))}
           </Box>
 
-          {/* Give Button & User Menu */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          {/* Language Switcher, Give Button & User Menu */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            {/* Language Switcher - Desktop */}
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <LanguageSwitcher variant="text" />
+            </Box>
+
             <Button
               variant="contained"
               color="secondary"
@@ -242,12 +251,12 @@ const Header = () => {
                 display: { xs: 'none', sm: 'flex' },
               }}
             >
-              Give
+              {t('nav.give')}
             </Button>
 
             {isAuthenticated ? (
               <>
-                <Tooltip title="Open menu">
+                <Tooltip title={t('nav.profile')}>
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar
                       alt={user?.name}
@@ -279,14 +288,14 @@ const Header = () => {
                     to="/dashboard"
                     onClick={handleCloseUserMenu}
                   >
-                    <Typography textAlign="center">Dashboard</Typography>
+                    <Typography textAlign="center">{t('nav.admin')}</Typography>
                   </MenuItem>
                   <MenuItem
                     component={RouterLink}
                     to="/profile"
                     onClick={handleCloseUserMenu}
                   >
-                    <Typography textAlign="center">Profile</Typography>
+                    <Typography textAlign="center">{t('nav.profile')}</Typography>
                   </MenuItem>
                   <Divider />
                   <MenuItem
@@ -295,7 +304,7 @@ const Header = () => {
                       logout();
                     }}
                   >
-                    <Typography textAlign="center">Logout</Typography>
+                    <Typography textAlign="center">{t('nav.logout')}</Typography>
                   </MenuItem>
                 </Menu>
               </>
@@ -309,7 +318,7 @@ const Header = () => {
                   display: { xs: 'none', md: 'flex' },
                 }}
               >
-                Login
+                {t('nav.login')}
               </Button>
             )}
           </Box>

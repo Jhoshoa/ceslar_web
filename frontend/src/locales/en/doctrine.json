@@ -1,0 +1,59 @@
+{
+  "title": "What We Believe",
+  "subtitle": "Our Doctrine and Faith",
+  "intro": "We are a church founded on the Holy Scriptures, committed to the apostolic faith and the eternal principles of the gospel of Jesus Christ.",
+  "beliefs": {
+    "title": "Principles of Faith",
+    "trinity": {
+      "title": "The Trinity",
+      "description": "We believe that God is one in three manifestations: Father, Son, and Holy Spirit."
+    },
+    "salvation": {
+      "title": "Salvation",
+      "description": "We believe in salvation through personal faith in Jesus Christ alone, not by human works."
+    },
+    "healing": {
+      "title": "Divine Healing",
+      "description": "We believe in divine healing through God's promise for all who believe."
+    },
+    "baptism": {
+      "title": "Baptism",
+      "description": "We believe in baptism as a public confession of faith in the name of Jesus Christ."
+    },
+    "predestination": {
+      "title": "Predestination",
+      "description": "We believe in election and predestination by God's sovereignty."
+    },
+    "secondComing": {
+      "title": "Second Coming",
+      "description": "We believe in Christ's physical return and the rapture of the church."
+    },
+    "millennium": {
+      "title": "Millennial Kingdom",
+      "description": "We believe in the future theocratic government of Christ for a thousand years."
+    },
+    "restoration": {
+      "title": "Restoration",
+      "description": "We believe in the restoration of early church faith through a prophetic messenger."
+    }
+  },
+  "principles": {
+    "title": "Moral and Civil Principles",
+    "freeWill": "Free will",
+    "religiousFreedom": "Religious freedom",
+    "science": "Scientific advancement as a gift from God",
+    "education": "Right to education and employment without discrimination",
+    "authority": "Respect for governmental authority and national laws"
+  },
+  "history": {
+    "title": "Our History",
+    "founding": "The work began when a recently ordained theology couple was sent to Chile as missionaries. After hearing God's call to Bolivia, they arrived in Santa Cruz de la Sierra on September 18, 1969.",
+    "growth": "They started preaching in the humble neighborhood \"El Lazareto,\" witnessing healings and miracles that attracted followers. The movement expanded across Bolivia and into Peru, Brazil, Chile, Argentina, and Paraguay.",
+    "persecution": "The organization faced persecution from 1976-1979, including the temporary exile of its founder, but persevered through prayer.",
+    "recognition": "Legally recognized through Supreme Resolution No. 188425 on September 8, 1978 by Bolivia's Ministry of Foreign Relations."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "Our spiritual mission is to bring people back to the \"apostolic faith.\" Our members include students, teachers, merchants, and professionals working to contribute positively to society while pursuing spiritual growth."
+  }
+}

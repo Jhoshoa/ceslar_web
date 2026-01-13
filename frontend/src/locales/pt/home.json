@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "title": "Cristo É a Resposta",
+    "subtitle": "Uma família de fé servindo a Deus e à comunidade",
+    "cta": "Conheça Nossas Igrejas",
+    "watchLive": "Assistir ao Vivo"
+  },
+  "welcome": {
+    "title": "Bem-vindos",
+    "subtitle": "À Nossa Família de Fé",
+    "description": "Somos uma comunidade de crentes comprometidos em compartilhar o amor de Cristo. Convidamos você a fazer parte da nossa família.",
+    "visitUs": "Visite-nos",
+    "learnMore": "Saiba Mais"
+  },
+  "upcomingEvents": {
+    "title": "Próximos Eventos",
+    "subtitle": "Participe das nossas atividades",
+    "noEvents": "Nenhum evento agendado",
+    "viewCalendar": "Ver Calendário Completo"
+  },
+  "latestSermon": {
+    "title": "Última Mensagem",
+    "subtitle": "Palavra que Transforma",
+    "watchNow": "Assistir Agora",
+    "listenNow": "Ouvir",
+    "viewAll": "Ver Todas as Mensagens",
+    "series": "Série",
+    "speaker": "Pregador",
+    "date": "Data"
+  },
+  "ministries": {
+    "title": "Nossos Ministérios",
+    "subtitle": "Servindo a Todos",
+    "description": "Temos ministérios para todas as idades e fases da vida.",
+    "viewAll": "Ver Todos os Ministérios"
+  },
+  "churchFinder": {
+    "title": "Encontre Sua Igreja",
+    "subtitle": "Estamos em vários países",
+    "selectCountry": "Selecionar País",
+    "selectDepartment": "Selecionar Estado",
+    "selectChurch": "Selecionar Igreja",
+    "nearMe": "Perto de Mim",
+    "viewAll": "Ver Todas as Igrejas",
+    "viewOnMap": "Ver no Mapa"
+  },
+  "cta": {
+    "title": "Tem Perguntas?",
+    "subtitle": "Estamos aqui para ajudar",
+    "description": "Se você tem perguntas sobre a fé, a igreja ou como pode participar, não hesite em nos contatar.",
+    "contact": "Fale Conosco",
+    "visitUs": "Visite-nos"
+  },
+  "contact": {
+    "title": "Fale Conosco",
+    "subtitle": "Queremos Ouvir Você",
+    "name": "Nome",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "message": "Mensagem",
+    "send": "Enviar Mensagem",
+    "address": "Endereço",
+    "hours": "Horários"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "title": "Cristo Es La Respuesta",
+    "subtitle": "Una familia de fe sirviendo a Dios y a la comunidad",
+    "cta": "Conoce Nuestras Iglesias",
+    "watchLive": "Ver en Vivo"
+  },
+  "welcome": {
+    "title": "Bienvenidos",
+    "subtitle": "A Nuestra Familia de Fe",
+    "description": "Somos una comunidad de creyentes comprometidos con compartir el amor de Cristo. Te invitamos a ser parte de nuestra familia.",
+    "visitUs": "Visítanos",
+    "learnMore": "Conocer Más"
+  },
+  "upcomingEvents": {
+    "title": "Próximos Eventos",
+    "subtitle": "Únete a nuestras actividades",
+    "noEvents": "No hay eventos programados",
+    "viewCalendar": "Ver Calendario Completo"
+  },
+  "latestSermon": {
+    "title": "Último Mensaje",
+    "subtitle": "Palabra que Transforma",
+    "watchNow": "Ver Ahora",
+    "listenNow": "Escuchar",
+    "viewAll": "Ver Todos los Mensajes",
+    "series": "Serie",
+    "speaker": "Predicador",
+    "date": "Fecha"
+  },
+  "ministries": {
+    "title": "Nuestros Ministerios",
+    "subtitle": "Sirviendo a Todos",
+    "description": "Tenemos ministerios para todas las edades y etapas de la vida.",
+    "viewAll": "Ver Todos los Ministerios"
+  },
+  "churchFinder": {
+    "title": "Encuentra Tu Iglesia",
+    "subtitle": "Estamos en varios países",
+    "selectCountry": "Seleccionar País",
+    "selectDepartment": "Seleccionar Departamento",
+    "selectChurch": "Seleccionar Iglesia",
+    "nearMe": "Cerca de Mí",
+    "viewAll": "Ver Todas las Iglesias",
+    "viewOnMap": "Ver en Mapa"
+  },
+  "cta": {
+    "title": "¿Tienes Preguntas?",
+    "subtitle": "Estamos aquí para ayudarte",
+    "description": "Si tienes preguntas sobre la fe, la iglesia o cómo puedes participar, no dudes en contactarnos.",
+    "contact": "Contáctanos",
+    "visitUs": "Visítanos"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Queremos Saber de Ti",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje",
+    "address": "Dirección",
+    "hours": "Horarios"
+  }
+}

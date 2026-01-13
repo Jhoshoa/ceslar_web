@@ -41,6 +41,13 @@ module.exports = {
     allowedTypes: ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'],
   },
 
+  cloudinary: {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+    apiKey: process.env.CLOUDINARY_API_KEY,
+    apiSecret: process.env.CLOUDINARY_API_SECRET,
+    folder: process.env.CLOUDINARY_FOLDER || 'ceslar',
+  },
+
   cors: {
     origin: process.env.FRONTEND_URL || 'http://localhost:3000',
     credentials: true,

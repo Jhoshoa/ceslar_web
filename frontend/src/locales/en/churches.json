@@ -1,0 +1,58 @@
+{
+  "title": "Our Churches",
+  "subtitle": "Find a church near you",
+  "search": {
+    "placeholder": "Search church...",
+    "byLocation": "Search by location",
+    "nearMe": "Near me"
+  },
+  "filters": {
+    "country": "Country",
+    "department": "Department/State",
+    "city": "City",
+    "allCountries": "All countries",
+    "allDepartments": "All departments",
+    "allCities": "All cities"
+  },
+  "card": {
+    "address": "Address",
+    "phone": "Phone",
+    "schedule": "Schedule",
+    "viewDetails": "View Details",
+    "getDirections": "Get Directions"
+  },
+  "detail": {
+    "about": "About",
+    "history": "History",
+    "location": "Location",
+    "schedule": "Service Schedule",
+    "leadership": "Leadership",
+    "contact": "Contact",
+    "gallery": "Gallery",
+    "events": "Events",
+    "ministries": "Ministries"
+  },
+  "schedule": {
+    "sundayService": "Sunday Service",
+    "bibleStudy": "Bible Study",
+    "prayer": "Prayer Meeting",
+    "youth": "Youth",
+    "children": "Children",
+    "women": "Women",
+    "men": "Men"
+  },
+  "membership": {
+    "joinChurch": "Join This Church",
+    "requestMembership": "Request Membership",
+    "alreadyMember": "Already a member",
+    "pendingRequest": "Request pending"
+  },
+  "map": {
+    "title": "Church Map",
+    "zoomIn": "Zoom In",
+    "zoomOut": "Zoom Out",
+    "myLocation": "My location"
+  },
+  "noResults": "No churches found",
+  "loading": "Loading churches..."
+}

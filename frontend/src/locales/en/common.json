@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "churches": "Churches",
+    "sermons": "Messages",
+    "events": "Events",
+    "ministries": "Ministries",
+    "contact": "Contact",
+    "give": "Give",
+    "login": "Sign In",
+    "logout": "Sign Out",
+    "profile": "My Profile",
+    "admin": "Admin"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "followUs": "Follow Us",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "serviceHours": "Service Hours"
+  },
+  "actions": {
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "loading": "Loading...",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "confirm": "Confirm",
+    "register": "Register",
+    "joinUs": "Join Us"
+  },
+  "messages": {
+    "success": "Operation successful",
+    "error": "An error occurred",
+    "notFound": "Not found",
+    "noResults": "No results found",
+    "required": "This field is required",
+    "invalidEmail": "Invalid email address",
+    "invalidPhone": "Invalid phone number"
+  },
+  "time": {
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "yesterday": "Yesterday",
+    "days": {
+      "sunday": "Sunday",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday"
+    },
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    }
+  },
+  "language": {
+    "select": "Language",
+    "es": "Español",
+    "en": "English",
+    "pt": "Português"
+  }
+}

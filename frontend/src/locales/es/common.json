@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Quiénes Somos",
+    "churches": "Iglesias",
+    "sermons": "Mensajes",
+    "events": "Eventos",
+    "ministries": "Ministerios",
+    "contact": "Contacto",
+    "give": "Ofrendar",
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "profile": "Mi Perfil",
+    "admin": "Administración"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "followUs": "Síguenos",
+    "quickLinks": "Enlaces Rápidos",
+    "contact": "Contacto",
+    "address": "Dirección",
+    "phone": "Teléfono",
+    "email": "Correo",
+    "serviceHours": "Horarios de Servicio"
+  },
+  "actions": {
+    "learnMore": "Conocer Más",
+    "viewAll": "Ver Todos",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "loading": "Cargando...",
+    "close": "Cerrar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "confirm": "Confirmar",
+    "register": "Registrarse",
+    "joinUs": "Únete"
+  },
+  "messages": {
+    "success": "Operación exitosa",
+    "error": "Ha ocurrido un error",
+    "notFound": "No encontrado",
+    "noResults": "No se encontraron resultados",
+    "required": "Este campo es requerido",
+    "invalidEmail": "Correo electrónico inválido",
+    "invalidPhone": "Número de teléfono inválido"
+  },
+  "time": {
+    "today": "Hoy",
+    "tomorrow": "Mañana",
+    "yesterday": "Ayer",
+    "days": {
+      "sunday": "Domingo",
+      "monday": "Lunes",
+      "tuesday": "Martes",
+      "wednesday": "Miércoles",
+      "thursday": "Jueves",
+      "friday": "Viernes",
+      "saturday": "Sábado"
+    },
+    "months": {
+      "january": "Enero",
+      "february": "Febrero",
+      "march": "Marzo",
+      "april": "Abril",
+      "may": "Mayo",
+      "june": "Junio",
+      "july": "Julio",
+      "august": "Agosto",
+      "september": "Septiembre",
+      "october": "Octubre",
+      "november": "Noviembre",
+      "december": "Diciembre"
+    }
+  },
+  "language": {
+    "select": "Idioma",
+    "es": "Español",
+    "en": "English",
+    "pt": "Português"
+  }
+}

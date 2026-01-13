@@ -1,0 +1,59 @@
+{
+  "title": "O Que Cremos",
+  "subtitle": "Nossa Doutrina e Fé",
+  "intro": "Somos uma igreja fundamentada nas Sagradas Escrituras, comprometidos com a fé apostólica e os princípios eternos do evangelho de Jesus Cristo.",
+  "beliefs": {
+    "title": "Princípios de Fé",
+    "trinity": {
+      "title": "A Trindade",
+      "description": "Cremos que Deus é um em três manifestações: Pai, Filho e Espírito Santo."
+    },
+    "salvation": {
+      "title": "Salvação",
+      "description": "Cremos na salvação pela fé pessoal em Jesus Cristo unicamente, não por obras humanas."
+    },
+    "healing": {
+      "title": "Cura Divina",
+      "description": "Cremos na cura divina através da promessa de Deus para todos os que creem."
+    },
+    "baptism": {
+      "title": "Batismo",
+      "description": "Cremos no batismo como confissão pública de fé no nome de Jesus Cristo."
+    },
+    "predestination": {
+      "title": "Predestinação",
+      "description": "Cremos na eleição e predestinação pela soberania de Deus."
+    },
+    "secondComing": {
+      "title": "Segunda Vinda",
+      "description": "Cremos no retorno físico de Cristo e no arrebatamento da igreja."
+    },
+    "millennium": {
+      "title": "Reino Milenar",
+      "description": "Cremos no governo teocrático futuro de Cristo por mil anos."
+    },
+    "restoration": {
+      "title": "Restauração",
+      "description": "Cremos na restauração da fé da igreja primitiva através de um mensageiro profético."
+    }
+  },
+  "principles": {
+    "title": "Princípios Morais e Civis",
+    "freeWill": "Livre arbítrio",
+    "religiousFreedom": "Liberdade religiosa",
+    "science": "O avanço científico como dom de Deus",
+    "education": "Direito à educação e emprego sem discriminação",
+    "authority": "Respeito à autoridade governamental e às leis nacionais"
+  },
+  "history": {
+    "title": "Nossa História",
+    "founding": "A obra começou quando um casal de teólogos recém-ordenados foi enviado ao Chile como missionários. Depois de ouvir o chamado de Deus para a Bolívia, chegaram a Santa Cruz de la Sierra em 18 de setembro de 1969.",
+    "growth": "Começaram a pregar no humilde bairro \"El Lazareto\", testemunhando curas e milagres que atraíram seguidores. O movimento se expandiu pela Bolívia e para o Peru, Brasil, Chile, Argentina e Paraguai.",
+    "persecution": "A organização enfrentou perseguição de 1976-1979, incluindo o exílio temporário de seu fundador, mas perseverou através da oração.",
+    "recognition": "Reconhecida legalmente através da Resolução Suprema No. 188425 em 8 de setembro de 1978 pelo Ministério das Relações Exteriores da Bolívia."
+  },
+  "mission": {
+    "title": "Nossa Missão",
+    "description": "Nossa missão espiritual é levar as pessoas de volta à \"fé apostólica\". Nossos membros incluem estudantes, professores, comerciantes e profissionais trabalhando para contribuir positivamente para a sociedade enquanto buscam o crescimento espiritual."
+  }
+}

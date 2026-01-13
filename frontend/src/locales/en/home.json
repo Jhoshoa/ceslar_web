@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "title": "Christ Is The Answer",
+    "subtitle": "A family of faith serving God and the community",
+    "cta": "Find Our Churches",
+    "watchLive": "Watch Live"
+  },
+  "welcome": {
+    "title": "Welcome",
+    "subtitle": "To Our Family of Faith",
+    "description": "We are a community of believers committed to sharing the love of Christ. We invite you to be part of our family.",
+    "visitUs": "Visit Us",
+    "learnMore": "Learn More"
+  },
+  "upcomingEvents": {
+    "title": "Upcoming Events",
+    "subtitle": "Join our activities",
+    "noEvents": "No scheduled events",
+    "viewCalendar": "View Full Calendar"
+  },
+  "latestSermon": {
+    "title": "Latest Message",
+    "subtitle": "Transforming Word",
+    "watchNow": "Watch Now",
+    "listenNow": "Listen",
+    "viewAll": "View All Messages",
+    "series": "Series",
+    "speaker": "Speaker",
+    "date": "Date"
+  },
+  "ministries": {
+    "title": "Our Ministries",
+    "subtitle": "Serving Everyone",
+    "description": "We have ministries for all ages and stages of life.",
+    "viewAll": "View All Ministries"
+  },
+  "churchFinder": {
+    "title": "Find Your Church",
+    "subtitle": "We are in several countries",
+    "selectCountry": "Select Country",
+    "selectDepartment": "Select Department",
+    "selectChurch": "Select Church",
+    "nearMe": "Near Me",
+    "viewAll": "View All Churches",
+    "viewOnMap": "View on Map"
+  },
+  "cta": {
+    "title": "Have Questions?",
+    "subtitle": "We are here to help",
+    "description": "If you have questions about faith, the church, or how you can participate, don't hesitate to contact us.",
+    "contact": "Contact Us",
+    "visitUs": "Visit Us"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We Want to Hear From You",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send Message",
+    "address": "Address",
+    "hours": "Hours"
+  }
+}

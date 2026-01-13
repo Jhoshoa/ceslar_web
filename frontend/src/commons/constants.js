@@ -2,45 +2,56 @@
  * Application-wide constants
  */
 
-export const APP_NAME = import.meta.env.VITE_APP_NAME || 'Our Church';
-export const APP_TAGLINE = import.meta.env.VITE_APP_TAGLINE || 'A place of faith, hope, and love';
+export const APP_NAME = import.meta.env.VITE_APP_NAME || 'Cristo Es La Respuesta';
+export const APP_TAGLINE = import.meta.env.VITE_APP_TAGLINE || 'Una familia de fe sirviendo a Dios y a la comunidad';
 
-// Navigation items
+// Supported languages
+export const LANGUAGES = {
+  es: { code: 'es', name: 'Español', flag: '🇧🇴', region: 'Bolivia' },
+  en: { code: 'en', name: 'English', flag: '🇺🇸', region: 'USA' },
+  pt: { code: 'pt', name: 'Português', flag: '🇧🇷', region: 'Brasil' }
+};
+
+export const DEFAULT_LANGUAGE = 'es';
+
+// Navigation items with i18n keys
 export const NAV_ITEMS = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Ministries', path: '/ministries' },
-  { label: 'Sermons', path: '/sermons' },
-  { label: 'Events', path: '/events' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'Home', key: 'home', path: '/' },
+  { label: 'About', key: 'about', path: '/about' },
+  { label: 'Churches', key: 'churches', path: '/churches' },
+  { label: 'Ministries', key: 'ministries', path: '/ministries' },
+  { label: 'Sermons', key: 'sermons', path: '/sermons' },
+  { label: 'Events', key: 'events', path: '/events' },
+  { label: 'Contact', key: 'contact', path: '/contact' },
 ];
 
 // Social media links
 export const SOCIAL_LINKS = {
-  facebook: 'https://facebook.com/ourchurch',
-  instagram: 'https://instagram.com/ourchurch',
-  youtube: 'https://youtube.com/ourchurch',
-  twitter: 'https://twitter.com/ourchurch',
+  facebook: 'https://facebook.com/cristoeslarespuesta',
+  youtube: 'https://youtube.com/CRISTOESLARESPUESTAOFICIAL',
+  blog: 'https://difundiendolaverdad.blogspot.com',
 };
 
-// Service times
+// Service times (for headquarters)
 export const SERVICE_TIMES = [
-  { day: 'Sunday', time: '10:00 AM', name: 'Morning Worship' },
-  { day: 'Wednesday', time: '7:00 PM', name: 'Bible Study' },
+  { day: 'Sunday', time: '10:00 AM', name: 'Servicio Dominical' },
+  { day: 'Sunday', time: '6:00 PM', name: 'Servicio Nocturno' },
+  { day: 'Saturday', time: '6:00 PM', name: 'Estudio Bíblico' },
 ];
 
-// Church contact info
+// Headquarters church info
 export const CHURCH_INFO = {
-  name: 'Our Church',
+  name: 'Sede Central Internacional',
   address: {
-    street: '123 Church Street',
-    city: 'Springfield',
-    state: 'IL',
-    zipCode: '62701',
+    street: 'Calle Chesterton esquina Walt Whitman',
+    neighborhood: 'Barrio Los Tusequis',
+    city: 'Santa Cruz de la Sierra',
+    department: 'Santa Cruz',
+    country: 'Bolivia',
   },
-  phone: '(555) 123-4567',
-  email: 'info@ourchurch.com',
-  officeHours: 'Monday - Friday, 9:00 AM - 5:00 PM',
+  phone: '(591) 3-3424802',
+  email: 'julianoscristoeslarespuesta@gmail.com',
+  foundedDate: '1969-09-24',
 };
 
 // Ministry types

@@ -1,0 +1,58 @@
+{
+  "title": "Nossas Igrejas",
+  "subtitle": "Encontre uma igreja perto de você",
+  "search": {
+    "placeholder": "Buscar igreja...",
+    "byLocation": "Buscar por localização",
+    "nearMe": "Perto de mim"
+  },
+  "filters": {
+    "country": "País",
+    "department": "Estado",
+    "city": "Cidade",
+    "allCountries": "Todos os países",
+    "allDepartments": "Todos os estados",
+    "allCities": "Todas as cidades"
+  },
+  "card": {
+    "address": "Endereço",
+    "phone": "Telefone",
+    "schedule": "Horários",
+    "viewDetails": "Ver Detalhes",
+    "getDirections": "Como Chegar"
+  },
+  "detail": {
+    "about": "Sobre",
+    "history": "História",
+    "location": "Localização",
+    "schedule": "Horários de Culto",
+    "leadership": "Liderança",
+    "contact": "Contato",
+    "gallery": "Galeria",
+    "events": "Eventos",
+    "ministries": "Ministérios"
+  },
+  "schedule": {
+    "sundayService": "Culto Dominical",
+    "bibleStudy": "Estudo Bíblico",
+    "prayer": "Reunião de Oração",
+    "youth": "Jovens",
+    "children": "Crianças",
+    "women": "Mulheres",
+    "men": "Homens"
+  },
+  "membership": {
+    "joinChurch": "Juntar-se a esta Igreja",
+    "requestMembership": "Solicitar Membresia",
+    "alreadyMember": "Já é membro",
+    "pendingRequest": "Solicitação pendente"
+  },
+  "map": {
+    "title": "Mapa de Igrejas",
+    "zoomIn": "Aproximar",
+    "zoomOut": "Afastar",
+    "myLocation": "Minha localização"
+  },
+  "noResults": "Nenhuma igreja encontrada",
+  "loading": "Carregando igrejas..."
+}
