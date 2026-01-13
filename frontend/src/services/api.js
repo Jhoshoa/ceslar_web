@@ -99,6 +99,27 @@ export const churchesApi = {
   getChildren: (id) => api.get(`/churches/${id}/children`),
 };
 
+// Membership API
+export const membershipApi = {
+  // User membership actions
+  requestMembership: (churchId, message) => api.post('/memberships/request', { churchId, message }),
+  getMyMemberships: () => api.get('/memberships/my'),
+  leaveChurch: (churchId) => api.delete(`/memberships/churches/${churchId}/leave`),
+
+  // Church admin actions
+  getPendingRequests: (churchId, params) => api.get(`/memberships/churches/${churchId}/pending`, { params }),
+  approveMembership: (churchId, userId, role) => api.put(`/memberships/churches/${churchId}/approve/${userId}`, { role }),
+  rejectMembership: (churchId, userId, reason) => api.put(`/memberships/churches/${churchId}/reject/${userId}`, { reason }),
+  getChurchMembers: (churchId, params) => api.get(`/memberships/churches/${churchId}/members`, { params }),
+  updateMemberRole: (churchId, userId, role) => api.put(`/memberships/churches/${churchId}/members/${userId}/role`, { role }),
+  removeMember: (churchId, userId) => api.delete(`/memberships/churches/${churchId}/members/${userId}`),
+
+  // Leadership
+  getLeadership: (churchId) => api.get(`/memberships/churches/${churchId}/leadership`),
+  addLeader: (churchId, data) => api.post(`/memberships/churches/${churchId}/leadership`, data),
+  removeLeader: (churchId, userId) => api.delete(`/memberships/churches/${churchId}/leadership/${userId}`),
+};
+
 // Set auth token (called after Auth0 login)
 export const setAuthToken = (token) => {
   if (token) {

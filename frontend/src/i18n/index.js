@@ -9,6 +9,7 @@ import esChurches from '../locales/es/churches.json';
 import esAuth from '../locales/es/auth.json';
 import esDoctrine from '../locales/es/doctrine.json';
 import esAbout from '../locales/es/about.json';
+import esMembership from '../locales/es/membership.json';
 
 import enCommon from '../locales/en/common.json';
 import enHome from '../locales/en/home.json';
@@ -16,6 +17,7 @@ import enChurches from '../locales/en/churches.json';
 import enAuth from '../locales/en/auth.json';
 import enDoctrine from '../locales/en/doctrine.json';
 import enAbout from '../locales/en/about.json';
+import enMembership from '../locales/en/membership.json';
 
 import ptCommon from '../locales/pt/common.json';
 import ptHome from '../locales/pt/home.json';
@@ -23,6 +25,7 @@ import ptChurches from '../locales/pt/churches.json';
 import ptAuth from '../locales/pt/auth.json';
 import ptDoctrine from '../locales/pt/doctrine.json';
 import ptAbout from '../locales/pt/about.json';
+import ptMembership from '../locales/pt/membership.json';
 
 const resources = {
   es: {
@@ -31,7 +34,8 @@ const resources = {
     churches: esChurches,
     auth: esAuth,
     doctrine: esDoctrine,
-    about: esAbout
+    about: esAbout,
+    membership: esMembership
   },
   en: {
     common: enCommon,
@@ -39,7 +43,8 @@ const resources = {
     churches: enChurches,
     auth: enAuth,
     doctrine: enDoctrine,
-    about: enAbout
+    about: enAbout,
+    membership: enMembership
   },
   pt: {
     common: ptCommon,
@@ -47,7 +52,8 @@ const resources = {
     churches: ptChurches,
     auth: ptAuth,
     doctrine: ptDoctrine,
-    about: ptAbout
+    about: ptAbout,
+    membership: ptMembership
   }
 };
 
@@ -58,7 +64,7 @@ i18n
     resources,
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'home', 'churches', 'auth', 'doctrine', 'about'],
+    ns: ['common', 'home', 'churches', 'auth', 'doctrine', 'about', 'membership'],
 
     detection: {
       // Order of language detection
