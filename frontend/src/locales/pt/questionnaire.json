@@ -1,0 +1,61 @@
+{
+  "title": "Formulario de Cadastro",
+  "subtitle": "Por favor preencha as seguintes informacoes",
+  "loadError": "Erro ao carregar as perguntas. Por favor tente novamente.",
+  "submitError": "Erro ao enviar o formulario. Por favor tente novamente.",
+  "noQuestions": "Nao ha perguntas disponiveis no momento.",
+
+  "back": "Anterior",
+  "next": "Proximo",
+  "submit": "Enviar",
+
+  "validation": {
+    "required": "Este campo e obrigatorio",
+    "minLength": "Deve ter pelo menos {{min}} caracteres",
+    "maxLength": "Nao pode exceder {{max}} caracteres",
+    "invalidEmail": "Por favor insira um email valido",
+    "invalidPhone": "Por favor insira um telefone valido",
+    "invalidNumber": "Por favor insira um numero valido",
+    "invalidDate": "Por favor insira uma data valida"
+  },
+
+  "submitSuccess": {
+    "title": "Cadastro Completo",
+    "message": "Obrigado por preencher o formulario. Entraremos em contato em breve."
+  },
+
+  "categories": {
+    "personalInfo": "Informacoes Pessoais",
+    "location": "Localizacao",
+    "spiritualInterest": "Interesse Espiritual",
+    "other": "Outras Perguntas"
+  },
+
+  "admin": {
+    "title": "Gerenciar Questionario",
+    "categories": "Categorias",
+    "questions": "Perguntas",
+    "addCategory": "Nova Categoria",
+    "addQuestion": "Nova Pergunta",
+    "editCategory": "Editar Categoria",
+    "editQuestion": "Editar Pergunta",
+    "deleteConfirm": "Tem certeza de que deseja excluir este item?",
+    "reorder": "Reordenar",
+    "statistics": "Estatisticas",
+    "answers": "Respostas",
+    "noAnswers": "Ainda nao ha respostas para esta pergunta"
+  },
+
+  "questionTypes": {
+    "text": "Texto curto",
+    "textarea": "Texto longo",
+    "select": "Lista suspensa",
+    "multiselect": "Selecao multipla",
+    "radio": "Escolha unica",
+    "checkbox": "Caixas de selecao",
+    "date": "Data",
+    "number": "Numero",
+    "email": "Email",
+    "phone": "Telefone"
+  }
+}

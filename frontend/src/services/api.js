@@ -120,6 +120,35 @@ export const membershipApi = {
   removeLeader: (churchId, userId) => api.delete(`/memberships/churches/${churchId}/leadership/${userId}`),
 };
 
+// Questions/Questionnaire API
+export const questionsApi = {
+  // Public
+  getRegistrationQuestions: (churchId, userType) =>
+    api.get('/questions/registration', { params: { churchId, userType } }),
+  getCategories: () => api.get('/questions/categories'),
+
+  // User actions
+  submitAnswers: (answers, churchId) => api.post('/questions/registration/submit', { answers, churchId }),
+  getMyAnswers: () => api.get('/questions/registration/my-answers'),
+
+  // Admin - Categories
+  createCategory: (data) => api.post('/questions/categories', data),
+  updateCategory: (categoryId, data) => api.put(`/questions/categories/${categoryId}`, data),
+  deleteCategory: (categoryId) => api.delete(`/questions/categories/${categoryId}`),
+  reorderCategories: (orders) => api.put('/questions/categories/reorder', { orders }),
+
+  // Admin - Questions
+  getAll: (params) => api.get('/questions', { params }),
+  getById: (id) => api.get(`/questions/${id}`),
+  create: (data) => api.post('/questions', data),
+  update: (id, data) => api.put(`/questions/${id}`, data),
+  delete: (id) => api.delete(`/questions/${id}`),
+  reorder: (orders) => api.put('/questions/reorder', { orders }),
+  getStats: (id) => api.get(`/questions/${id}/stats`),
+  getAnswers: (id, params) => api.get(`/questions/${id}/answers`, { params }),
+  getUserAnswers: (userId) => api.get(`/questions/registration/users/${userId}/answers`),
+};
+
 // Set auth token (called after Auth0 login)
 export const setAuthToken = (token) => {
   if (token) {

@@ -8,6 +8,7 @@ const ministryRoutes = require('./ministryRoutes');
 const publicRoutes = require('./publicRoutes');
 const churchRoutes = require('./churchRoutes');
 const membershipRoutes = require('./membershipRoutes');
+const questionRoutes = require('./questionRoutes');
 
 // API routes
 router.use('/users', userRoutes);
@@ -17,6 +18,7 @@ router.use('/ministries', ministryRoutes);
 router.use('/public', publicRoutes);
 router.use('/churches', churchRoutes);
 router.use('/memberships', membershipRoutes);
+router.use('/questions', questionRoutes);
 
 // Health check
 router.get('/health', (req, res) => {

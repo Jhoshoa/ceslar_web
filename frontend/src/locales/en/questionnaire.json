@@ -1,0 +1,61 @@
+{
+  "title": "Registration Form",
+  "subtitle": "Please complete the following information",
+  "loadError": "Error loading questions. Please try again.",
+  "submitError": "Error submitting form. Please try again.",
+  "noQuestions": "No questions available at this time.",
+
+  "back": "Back",
+  "next": "Next",
+  "submit": "Submit",
+
+  "validation": {
+    "required": "This field is required",
+    "minLength": "Must be at least {{min}} characters",
+    "maxLength": "Cannot exceed {{max}} characters",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidPhone": "Please enter a valid phone number",
+    "invalidNumber": "Please enter a valid number",
+    "invalidDate": "Please enter a valid date"
+  },
+
+  "submitSuccess": {
+    "title": "Registration Complete",
+    "message": "Thank you for completing the form. We will contact you soon."
+  },
+
+  "categories": {
+    "personalInfo": "Personal Information",
+    "location": "Location",
+    "spiritualInterest": "Spiritual Interest",
+    "other": "Other Questions"
+  },
+
+  "admin": {
+    "title": "Manage Questionnaire",
+    "categories": "Categories",
+    "questions": "Questions",
+    "addCategory": "New Category",
+    "addQuestion": "New Question",
+    "editCategory": "Edit Category",
+    "editQuestion": "Edit Question",
+    "deleteConfirm": "Are you sure you want to delete this item?",
+    "reorder": "Reorder",
+    "statistics": "Statistics",
+    "answers": "Answers",
+    "noAnswers": "No answers yet for this question"
+  },
+
+  "questionTypes": {
+    "text": "Short text",
+    "textarea": "Long text",
+    "select": "Dropdown list",
+    "multiselect": "Multiple selection",
+    "radio": "Single choice",
+    "checkbox": "Checkboxes",
+    "date": "Date",
+    "number": "Number",
+    "email": "Email",
+    "phone": "Phone"
+  }
+}

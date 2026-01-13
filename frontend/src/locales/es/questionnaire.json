@@ -1,0 +1,61 @@
+{
+  "title": "Formulario de Registro",
+  "subtitle": "Por favor complete la siguiente informacion",
+  "loadError": "Error al cargar las preguntas. Por favor intente nuevamente.",
+  "submitError": "Error al enviar el formulario. Por favor intente nuevamente.",
+  "noQuestions": "No hay preguntas disponibles en este momento.",
+
+  "back": "Anterior",
+  "next": "Siguiente",
+  "submit": "Enviar",
+
+  "validation": {
+    "required": "Este campo es requerido",
+    "minLength": "Debe tener al menos {{min}} caracteres",
+    "maxLength": "No puede exceder {{max}} caracteres",
+    "invalidEmail": "Por favor ingrese un correo electronico valido",
+    "invalidPhone": "Por favor ingrese un numero de telefono valido",
+    "invalidNumber": "Por favor ingrese un numero valido",
+    "invalidDate": "Por favor ingrese una fecha valida"
+  },
+
+  "submitSuccess": {
+    "title": "Registro Completado",
+    "message": "Gracias por completar el formulario. Nos pondremos en contacto pronto."
+  },
+
+  "categories": {
+    "personalInfo": "Informacion Personal",
+    "location": "Ubicacion",
+    "spiritualInterest": "Interes Espiritual",
+    "other": "Otras Preguntas"
+  },
+
+  "admin": {
+    "title": "Administrar Cuestionario",
+    "categories": "Categorias",
+    "questions": "Preguntas",
+    "addCategory": "Nueva Categoria",
+    "addQuestion": "Nueva Pregunta",
+    "editCategory": "Editar Categoria",
+    "editQuestion": "Editar Pregunta",
+    "deleteConfirm": "Esta seguro de que desea eliminar este elemento?",
+    "reorder": "Reordenar",
+    "statistics": "Estadisticas",
+    "answers": "Respuestas",
+    "noAnswers": "Aun no hay respuestas para esta pregunta"
+  },
+
+  "questionTypes": {
+    "text": "Texto corto",
+    "textarea": "Texto largo",
+    "select": "Lista desplegable",
+    "multiselect": "Seleccion multiple",
+    "radio": "Opcion unica",
+    "checkbox": "Casillas de verificacion",
+    "date": "Fecha",
+    "number": "Numero",
+    "email": "Correo electronico",
+    "phone": "Telefono"
+  }
+}

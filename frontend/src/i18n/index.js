@@ -10,6 +10,7 @@ import esAuth from '../locales/es/auth.json';
 import esDoctrine from '../locales/es/doctrine.json';
 import esAbout from '../locales/es/about.json';
 import esMembership from '../locales/es/membership.json';
+import esQuestionnaire from '../locales/es/questionnaire.json';
 
 import enCommon from '../locales/en/common.json';
 import enHome from '../locales/en/home.json';
@@ -18,6 +19,7 @@ import enAuth from '../locales/en/auth.json';
 import enDoctrine from '../locales/en/doctrine.json';
 import enAbout from '../locales/en/about.json';
 import enMembership from '../locales/en/membership.json';
+import enQuestionnaire from '../locales/en/questionnaire.json';
 
 import ptCommon from '../locales/pt/common.json';
 import ptHome from '../locales/pt/home.json';
@@ -26,6 +28,7 @@ import ptAuth from '../locales/pt/auth.json';
 import ptDoctrine from '../locales/pt/doctrine.json';
 import ptAbout from '../locales/pt/about.json';
 import ptMembership from '../locales/pt/membership.json';
+import ptQuestionnaire from '../locales/pt/questionnaire.json';
 
 const resources = {
   es: {
@@ -35,7 +38,8 @@ const resources = {
     auth: esAuth,
     doctrine: esDoctrine,
     about: esAbout,
-    membership: esMembership
+    membership: esMembership,
+    questionnaire: esQuestionnaire
   },
   en: {
     common: enCommon,
@@ -44,7 +48,8 @@ const resources = {
     auth: enAuth,
     doctrine: enDoctrine,
     about: enAbout,
-    membership: enMembership
+    membership: enMembership,
+    questionnaire: enQuestionnaire
   },
   pt: {
     common: ptCommon,
@@ -53,7 +58,8 @@ const resources = {
     auth: ptAuth,
     doctrine: ptDoctrine,
     about: ptAbout,
-    membership: ptMembership
+    membership: ptMembership,
+    questionnaire: ptQuestionnaire
   }
 };
 
@@ -64,7 +70,7 @@ i18n
     resources,
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'home', 'churches', 'auth', 'doctrine', 'about', 'membership'],
+    ns: ['common', 'home', 'churches', 'auth', 'doctrine', 'about', 'membership', 'questionnaire'],
 
     detection: {
       // Order of language detection

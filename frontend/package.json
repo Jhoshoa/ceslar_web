@@ -24,7 +24,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.2",
-    "react-i18next": "^16.5.2",
+    "react-i18next": "^16.5.3",
     "react-router-dom": "^6.21.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
