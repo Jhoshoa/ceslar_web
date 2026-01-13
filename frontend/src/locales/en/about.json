@@ -1,0 +1,75 @@
+{
+  "title": "About Us",
+  "subtitle": "Learn About Our History and Mission",
+  "intro": "Christ Is The Answer is a church network with presence in Bolivia and other South American countries, committed to sharing the love of Christ with all nations.",
+  "history": {
+    "title": "Our History",
+    "subtitle": "More Than 50 Years of Faith",
+    "timeline": {
+      "1969": {
+        "date": "September 18, 1969",
+        "title": "Arrival in Bolivia",
+        "description": "The founders arrived in Santa Cruz de la Sierra, Bolivia, after hearing God's call while serving as missionaries in Chile."
+      },
+      "1969b": {
+        "date": "September 24, 1969",
+        "title": "Headquarters Founded",
+        "description": "The headquarters was established in Santa Cruz, beginning to preach in the humble neighborhood of El Lazareto."
+      },
+      "1972": {
+        "date": "October 14, 1972",
+        "title": "Expansion to Cochabamba",
+        "description": "The Cochabamba church was founded, marking the beginning of expansion across Bolivia."
+      },
+      "1978": {
+        "date": "September 8, 1978",
+        "title": "Legal Recognition",
+        "description": "The organization received legal recognition through Supreme Resolution No. 188425 from Bolivia's Ministry of Foreign Relations."
+      },
+      "2002": {
+        "date": "October 21, 2002",
+        "title": "International Expansion",
+        "description": "The church was established in Buenos Aires, Argentina, consolidating presence in South America."
+      }
+    }
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "Our spiritual mission is to bring people back to the apostolic faith, preaching the gospel of Jesus Christ and serving our communities with love.",
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be a church network that transforms lives through the message of Christ, reaching all nations with the gospel."
+    }
+  },
+  "values": {
+    "title": "Our Values",
+    "faith": {
+      "title": "Faith",
+      "description": "We believe in the transforming power of faith in Jesus Christ."
+    },
+    "love": {
+      "title": "Love",
+      "description": "We love God and our neighbor as ourselves."
+    },
+    "service": {
+      "title": "Service",
+      "description": "We serve our community with humility and dedication."
+    },
+    "unity": {
+      "title": "Unity",
+      "description": "We work together as a family of faith."
+    }
+  },
+  "presence": {
+    "title": "Our Presence",
+    "description": "We are present in multiple South American countries, serving thousands of families.",
+    "countries": "Countries",
+    "churches": "Churches",
+    "members": "Members"
+  },
+  "cta": {
+    "title": "Be Part of Our Family",
+    "description": "We invite you to get to know us and be part of our faith community.",
+    "button": "Find a Church"
+  }
+}

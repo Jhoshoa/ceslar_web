@@ -8,18 +8,21 @@ import esHome from '../locales/es/home.json';
 import esChurches from '../locales/es/churches.json';
 import esAuth from '../locales/es/auth.json';
 import esDoctrine from '../locales/es/doctrine.json';
+import esAbout from '../locales/es/about.json';
 
 import enCommon from '../locales/en/common.json';
 import enHome from '../locales/en/home.json';
 import enChurches from '../locales/en/churches.json';
 import enAuth from '../locales/en/auth.json';
 import enDoctrine from '../locales/en/doctrine.json';
+import enAbout from '../locales/en/about.json';
 
 import ptCommon from '../locales/pt/common.json';
 import ptHome from '../locales/pt/home.json';
 import ptChurches from '../locales/pt/churches.json';
 import ptAuth from '../locales/pt/auth.json';
 import ptDoctrine from '../locales/pt/doctrine.json';
+import ptAbout from '../locales/pt/about.json';
 
 const resources = {
   es: {
@@ -27,21 +30,24 @@ const resources = {
     home: esHome,
     churches: esChurches,
     auth: esAuth,
-    doctrine: esDoctrine
+    doctrine: esDoctrine,
+    about: esAbout
   },
   en: {
     common: enCommon,
     home: enHome,
     churches: enChurches,
     auth: enAuth,
-    doctrine: enDoctrine
+    doctrine: enDoctrine,
+    about: enAbout
   },
   pt: {
     common: ptCommon,
     home: ptHome,
     churches: ptChurches,
     auth: ptAuth,
-    doctrine: ptDoctrine
+    doctrine: ptDoctrine,
+    about: ptAbout
   }
 };
 
@@ -52,7 +58,7 @@ i18n
     resources,
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'home', 'churches', 'auth', 'doctrine'],
+    ns: ['common', 'home', 'churches', 'auth', 'doctrine', 'about'],
 
     detection: {
       // Order of language detection

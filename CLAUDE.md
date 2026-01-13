@@ -88,5 +88,6 @@ const result = await uploadImage(buffer, { folder: 'churches/logos', width: 400 
 - Sprint 1: ✅ Complete (Foundation + i18n)
 - Sprint 2: ✅ Complete (Church Navigation)
 - Sprint 3: ✅ Complete (Existing Code Migration)
-- Sprint 4: 🔄 Next (Content & Doctrine)
-- Sprint 5-8: See `docs/features/MULTI-CHURCH-SYSTEM-ENHANCED.md`
+- Sprint 4: ✅ Complete (Content & Doctrine)
+- Sprint 5: 🔄 Next (Permissions + Multi-Admin)
+- Sprint 6-8: See `docs/features/MULTI-CHURCH-SYSTEM-ENHANCED.md`

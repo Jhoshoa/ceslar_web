@@ -4,14 +4,15 @@ import Layout from './components/layout/Layout';
 import HomePage from './components/pages/HomePage';
 import ChurchesPage from './components/pages/ChurchesPage';
 import ChurchDetailPage from './components/pages/ChurchDetailPage';
+import DoctrinePage from './components/pages/DoctrinePage';
+import AboutPage from './components/pages/AboutPage';
+import ContactPage from './components/pages/ContactPage';
 import Loading from './components/common/Loading';
 
 // Lazy load other pages for better performance
-// import AboutPage from './components/pages/AboutPage';
 // import MinistriesPage from './components/pages/MinistriesPage';
 // import SermonsPage from './components/pages/SermonsPage';
 // import EventsPage from './components/pages/EventsPage';
-// import ContactPage from './components/pages/ContactPage';
 // import GivePage from './components/pages/GivePage';
 
 function App() {
@@ -32,12 +33,15 @@ function App() {
         <Route path="/churches/:country/:department" element={<ChurchesPage />} />
         <Route path="/churches/:country/:department/:slug" element={<ChurchDetailPage />} />
 
+        {/* Content Pages */}
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/doctrine" element={<DoctrinePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+
         {/* Add more routes as pages are created */}
-        {/* <Route path="/about" element={<AboutPage />} /> */}
         {/* <Route path="/ministries" element={<MinistriesPage />} /> */}
         {/* <Route path="/sermons" element={<SermonsPage />} /> */}
         {/* <Route path="/events" element={<EventsPage />} /> */}
-        {/* <Route path="/contact" element={<ContactPage />} /> */}
         {/* <Route path="/give" element={<GivePage />} /> */}
       </Routes>
     </Layout>

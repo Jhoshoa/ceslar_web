@@ -1,0 +1,75 @@
+{
+  "title": "Quem Somos",
+  "subtitle": "Conheca Nossa Historia e Missao",
+  "intro": "Cristo E a Resposta e uma rede de igrejas com presenca na Bolivia e outros paises da America do Sul, comprometida em compartilhar o amor de Cristo com todas as nacoes.",
+  "history": {
+    "title": "Nossa Historia",
+    "subtitle": "Mais de 50 Anos de Fe",
+    "timeline": {
+      "1969": {
+        "date": "18 de Setembro, 1969",
+        "title": "Chegada a Bolivia",
+        "description": "Os fundadores chegaram a Santa Cruz de la Sierra, Bolivia, apos ouvir o chamado de Deus enquanto serviam como missionarios no Chile."
+      },
+      "1969b": {
+        "date": "24 de Setembro, 1969",
+        "title": "Fundacao da Sede Central",
+        "description": "A sede central foi estabelecida em Santa Cruz, comecando a pregar no humilde bairro El Lazareto."
+      },
+      "1972": {
+        "date": "14 de Outubro, 1972",
+        "title": "Expansao para Cochabamba",
+        "description": "A igreja de Cochabamba foi fundada, marcando o inicio da expansao pela Bolivia."
+      },
+      "1978": {
+        "date": "8 de Setembro, 1978",
+        "title": "Reconhecimento Legal",
+        "description": "A organizacao recebeu reconhecimento legal atraves da Resolucao Suprema No. 188425 do Ministerio das Relacoes Exteriores da Bolivia."
+      },
+      "2002": {
+        "date": "21 de Outubro, 2002",
+        "title": "Expansao Internacional",
+        "description": "A igreja foi estabelecida em Buenos Aires, Argentina, consolidando a presenca na America do Sul."
+      }
+    }
+  },
+  "mission": {
+    "title": "Nossa Missao",
+    "description": "Nossa missao espiritual e levar as pessoas de volta a fe apostolica, pregando o evangelho de Jesus Cristo e servindo nossas comunidades com amor.",
+    "vision": {
+      "title": "Nossa Visao",
+      "description": "Ser uma rede de igrejas que transforma vidas atraves da mensagem de Cristo, alcancando todas as nacoes com o evangelho."
+    }
+  },
+  "values": {
+    "title": "Nossos Valores",
+    "faith": {
+      "title": "Fe",
+      "description": "Cremos no poder transformador da fe em Jesus Cristo."
+    },
+    "love": {
+      "title": "Amor",
+      "description": "Amamos a Deus e ao proximo como a nos mesmos."
+    },
+    "service": {
+      "title": "Servico",
+      "description": "Servimos nossa comunidade com humildade e dedicacao."
+    },
+    "unity": {
+      "title": "Unidade",
+      "description": "Trabalhamos unidos como uma familia de fe."
+    }
+  },
+  "presence": {
+    "title": "Nossa Presenca",
+    "description": "Estamos presentes em varios paises da America do Sul, servindo milhares de familias.",
+    "countries": "Paises",
+    "churches": "Igrejas",
+    "members": "Membros"
+  },
+  "cta": {
+    "title": "Faca Parte da Nossa Familia",
+    "description": "Convidamos voce a nos conhecer e fazer parte da nossa comunidade de fe.",
+    "button": "Encontre uma Igreja"
+  }
+}

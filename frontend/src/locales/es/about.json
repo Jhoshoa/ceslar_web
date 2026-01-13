@@ -1,0 +1,75 @@
+{
+  "title": "Quienes Somos",
+  "subtitle": "Conoce Nuestra Historia y Mision",
+  "intro": "Cristo Es La Respuesta es una red de iglesias con presencia en Bolivia y otros paises de Sudamerica, comprometida con compartir el amor de Cristo con todas las naciones.",
+  "history": {
+    "title": "Nuestra Historia",
+    "subtitle": "Mas de 50 Anos de Fe",
+    "timeline": {
+      "1969": {
+        "date": "18 de Septiembre, 1969",
+        "title": "Llegada a Bolivia",
+        "description": "Los fundadores llegaron a Santa Cruz de la Sierra, Bolivia, despues de escuchar el llamado de Dios mientras servian como misioneros en Chile."
+      },
+      "1969b": {
+        "date": "24 de Septiembre, 1969",
+        "title": "Fundacion de la Sede Central",
+        "description": "Se establece la sede central en Santa Cruz, comenzando a predicar en el humilde barrio El Lazareto."
+      },
+      "1972": {
+        "date": "14 de Octubre, 1972",
+        "title": "Expansion a Cochabamba",
+        "description": "Se funda la iglesia de Cochabamba, marcando el inicio de la expansion por Bolivia."
+      },
+      "1978": {
+        "date": "8 de Septiembre, 1978",
+        "title": "Reconocimiento Legal",
+        "description": "La organizacion recibe reconocimiento legal mediante Resolucion Suprema No. 188425 del Ministerio de Relaciones Exteriores de Bolivia."
+      },
+      "2002": {
+        "date": "21 de Octubre, 2002",
+        "title": "Expansion Internacional",
+        "description": "Se establece la iglesia en Buenos Aires, Argentina, consolidando la presencia en Sudamerica."
+      }
+    }
+  },
+  "mission": {
+    "title": "Nuestra Mision",
+    "description": "Nuestra mision espiritual es llevar a las personas de vuelta a la fe apostolica, predicando el evangelio de Jesucristo y sirviendo a nuestras comunidades con amor.",
+    "vision": {
+      "title": "Nuestra Vision",
+      "description": "Ser una red de iglesias que transforma vidas a traves del mensaje de Cristo, alcanzando a todas las naciones con el evangelio."
+    }
+  },
+  "values": {
+    "title": "Nuestros Valores",
+    "faith": {
+      "title": "Fe",
+      "description": "Creemos en el poder transformador de la fe en Jesucristo."
+    },
+    "love": {
+      "title": "Amor",
+      "description": "Amamos a Dios y a nuestro projimo como a nosotros mismos."
+    },
+    "service": {
+      "title": "Servicio",
+      "description": "Servimos a nuestra comunidad con humildad y dedicacion."
+    },
+    "unity": {
+      "title": "Unidad",
+      "description": "Trabajamos unidos como una familia de fe."
+    }
+  },
+  "presence": {
+    "title": "Nuestra Presencia",
+    "description": "Estamos presentes en multiples paises de Sudamerica, sirviendo a miles de familias.",
+    "countries": "Paises",
+    "churches": "Iglesias",
+    "members": "Miembros"
+  },
+  "cta": {
+    "title": "Se Parte de Nuestra Familia",
+    "description": "Te invitamos a conocernos y ser parte de nuestra comunidad de fe.",
+    "button": "Encuentra una Iglesia"
+  }
+}
