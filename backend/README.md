@@ -95,6 +95,72 @@ backend/
 docker-compose up -d backend mongodb
 ```
 
+## MongoDB Connection
+
+### Connection String Format
+
+When using Docker MongoDB with authentication, the connection string requires `authSource=admin`:
+
+```
+mongodb://username:password@host:port/database?authSource=admin
+```
+
+**Why `authSource=admin`?** Docker creates the root user in the `admin` database via `MONGO_INITDB_ROOT_USERNAME`. Without `authSource=admin`, MongoDB tries to authenticate against the target database (`church_db`) and fails.
+
+### Connection Options
+
+**Option 1: Using root user (default)**
+```bash
+# Uses credentials from root .env (MONGO_ROOT_USERNAME/PASSWORD)
+MONGODB_URI=mongodb://admin:abc123@localhost:27017/church_db?authSource=admin
+```
+
+**Option 2: Using application user**
+```bash
+# Uses church_app user created by mongo-init.js (no authSource needed)
+MONGODB_URI=mongodb://church_app:church_app_password@localhost:27017/church_db
+```
+
+### Connecting from Different Tools
+
+**Command Line (mongosh):**
+```bash
+# Using root user
+mongosh "mongodb://admin:abc123@localhost:27017/church_db?authSource=admin"
+
+# Using app user
+mongosh "mongodb://church_app:church_app_password@localhost:27017/church_db"
+```
+
+**VS Code MongoDB Extension:**
+1. Click "Add Connection" in the MongoDB extension
+2. Use connection string: `mongodb://admin:abc123@localhost:27017/church_db?authSource=admin`
+3. Or use app user: `mongodb://church_app:church_app_password@localhost:27017/church_db`
+
+**MongoDB Compass:**
+1. Paste connection string: `mongodb://admin:abc123@localhost:27017/church_db?authSource=admin`
+2. Click "Connect"
+
+### Troubleshooting
+
+**"Authentication failed" error:**
+- Ensure `?authSource=admin` is in your connection string when using root user
+- Verify credentials match those in root `.env` file
+- If using Docker, ensure the MongoDB container was created fresh (credentials are only set on first run)
+
+**To reset MongoDB credentials:**
+```bash
+# Stop containers and remove volumes
+docker-compose down -v
+
+# Update credentials in root .env file
+# MONGO_ROOT_USERNAME=admin
+# MONGO_ROOT_PASSWORD=your_new_password
+
+# Start fresh
+docker-compose up -d mongodb
+```
+
 ## Environment Variables
 
 | Variable | Description | Default |

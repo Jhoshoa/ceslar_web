@@ -1,8 +1,23 @@
 // MongoDB initialization script
 // This script runs when the MongoDB container is first created
+// It runs as the root user defined in MONGO_INITDB_ROOT_USERNAME/PASSWORD
 
 // Switch to the church database
 db = db.getSiblingDB('church_db');
+
+// Create a dedicated application user for the church_db database
+// This is optional - you can also use the root user with authSource=admin
+// To use this user, set MONGODB_URI=mongodb://church_app:church_app_password@localhost:27017/church_db
+db.createUser({
+  user: 'church_app',
+  pwd: 'church_app_password',
+  roles: [
+    { role: 'readWrite', db: 'church_db' },
+    { role: 'dbAdmin', db: 'church_db' }
+  ]
+});
+
+print('Created application user: church_app');
 
 // Create collections with validation
 db.createCollection('users', {

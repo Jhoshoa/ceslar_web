@@ -88,7 +88,9 @@ const ChurchSelector = ({
           country: selectedCountry,
           department: selectedDepartment,
         });
-        setChurches(response.data?.docs || response.data || []);
+        // Handle paginated response: response.data = { data: [...], pagination: {...} }
+        const churchesData = response.data?.data || response.data?.docs || response.data || [];
+        setChurches(Array.isArray(churchesData) ? churchesData : []);
       } catch (err) {
         setError(err.message);
       } finally {

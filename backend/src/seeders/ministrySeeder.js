@@ -1,6 +1,7 @@
 const Ministry = require('../models/Ministry');
 const Church = require('../models/Church');
 const logger = require('../helpers/logger');
+const slugify = require('slugify');
 const { MINISTRY_TYPES, MINISTRY_SCOPE } = require('../commons/constants');
 
 const ministries = [
@@ -139,18 +140,22 @@ const seed = async () => {
 
     // Get headquarters church to assign to ministries
     const headquarters = await Church.findOne({ isHeadquarters: true });
-    if (!headquarters) {
-      logger.warn('No headquarters church found. Seeding ministries without church reference.');
-      await Ministry.insertMany(ministries);
-    } else {
-      // Add church reference and scope to each ministry
-      const ministriesWithChurch = ministries.map(ministry => ({
-        ...ministry,
+
+    // Generate slugs manually since insertMany bypasses pre-save hooks
+    const ministriesWithSlugs = ministries.map(ministry => ({
+      ...ministry,
+      slug: slugify(ministry.name, { lower: true, strict: true }),
+      ...(headquarters && {
         church: headquarters._id,
         scope: MINISTRY_SCOPE.GLOBAL // HQ ministries visible to all churches
-      }));
-      await Ministry.insertMany(ministriesWithChurch);
+      })
+    }));
+
+    if (!headquarters) {
+      logger.warn('No headquarters church found. Seeding ministries without church reference.');
     }
+
+    await Ministry.insertMany(ministriesWithSlugs);
 
     logger.info(`Successfully seeded ${ministries.length} ministries`);
   } catch (error) {

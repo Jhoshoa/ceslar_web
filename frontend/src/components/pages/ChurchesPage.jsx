@@ -47,8 +47,10 @@ const ChurchesPage = () => {
             page,
             limit: 12,
           });
-          setChurches(response.data?.docs || response.data || []);
-          setTotalPages(response.data?.totalPages || 1);
+          // Handle paginated response: response.data = { data: [...], pagination: {...} }
+          const churchesData = response.data?.data || response.data?.docs || response.data || [];
+          setChurches(Array.isArray(churchesData) ? churchesData : []);
+          setTotalPages(response.data?.pagination?.totalPages || response.data?.totalPages || 1);
         } else if (country) {
           // Filter by country only
           const response = await churchesApi.getByCountry(decodeURIComponent(country));
@@ -60,8 +62,10 @@ const ChurchesPage = () => {
           setGroupedChurches(response.data || []);
           // Also get flat list for list view
           const listResponse = await churchesApi.getAll({ page, limit: 12 });
-          setChurches(listResponse.data?.docs || listResponse.data || []);
-          setTotalPages(listResponse.data?.totalPages || 1);
+          // Handle paginated response: listResponse.data = { data: [...], pagination: {...} }
+          const churchesData = listResponse.data?.data || listResponse.data?.docs || listResponse.data || [];
+          setChurches(Array.isArray(churchesData) ? churchesData : []);
+          setTotalPages(listResponse.data?.pagination?.totalPages || listResponse.data?.totalPages || 1);
         }
       } catch (err) {
         setError(err.message || 'Error loading churches');

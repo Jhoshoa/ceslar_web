@@ -1,6 +1,8 @@
 const Sermon = require('../models/Sermon');
 const Church = require('../models/Church');
+const User = require('../models/User');
 const logger = require('../helpers/logger');
+const slugify = require('slugify');
 const { SERMON_CATEGORIES, SERMON_VISIBILITY } = require('../commons/constants');
 
 const sermons = [
@@ -115,18 +117,38 @@ const seed = async () => {
 
     // Get headquarters church to assign to sermons
     const headquarters = await Church.findOne({ isHeadquarters: true });
-    if (!headquarters) {
-      logger.warn('No headquarters church found. Seeding sermons without church reference.');
-      await Sermon.insertMany(sermons);
-    } else {
-      // Add church reference and visibility to each sermon
-      const sermonsWithChurch = sermons.map(sermon => ({
-        ...sermon,
+
+    // Get users to use as speakers (Pastor John Smith and Sarah Johnson)
+    const pastorJohn = await User.findOne({ firstName: 'John', lastName: 'Smith' });
+    const pastorSarah = await User.findOne({ firstName: 'Sarah', lastName: 'Johnson' });
+
+    if (!pastorJohn) {
+      logger.warn('Pastor John Smith not found. Please run user seeder first.');
+      return;
+    }
+
+    // Map speaker names to user IDs
+    const speakerMap = {
+      'Pastor John Smith': pastorJohn._id,
+      'Pastor Sarah Johnson': pastorSarah?._id || pastorJohn._id
+    };
+
+    // Generate slugs manually since insertMany bypasses pre-save hooks
+    const sermonsWithSlugs = sermons.map(sermon => ({
+      ...sermon,
+      slug: slugify(sermon.title, { lower: true, strict: true }) + '-' + Date.now(),
+      speaker: speakerMap[sermon.speakerName] || pastorJohn._id,
+      ...(headquarters && {
         church: headquarters._id,
         sermonVisibility: SERMON_VISIBILITY.NETWORK_WIDE // HQ sermons visible to all
-      }));
-      await Sermon.insertMany(sermonsWithChurch);
+      })
+    }));
+
+    if (!headquarters) {
+      logger.warn('No headquarters church found. Seeding sermons without church reference.');
     }
+
+    await Sermon.insertMany(sermonsWithSlugs);
 
     logger.info(`Successfully seeded ${sermons.length} sermons`);
   } catch (error) {

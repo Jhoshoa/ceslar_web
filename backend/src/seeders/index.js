@@ -10,11 +10,30 @@ const sermonSeeder = require('./sermonSeeder');
 const ministrySeeder = require('./ministrySeeder');
 const questionSeeder = require('./questionSeeder');
 
-const runSeeders = async () => {
+// Helper to clear all data (used by force mode and clearAll)
+const clearAllData = async () => {
+  // Clear in reverse order of dependencies
+  await questionSeeder.clear();
+  await eventSeeder.clear();
+  await sermonSeeder.clear();
+  await userSeeder.clear();
+  await ministrySeeder.clear();
+  await churchSeeder.clear();
+  logger.info('All data cleared');
+};
+
+const runSeeders = async (options = {}) => {
+  const { force = false } = options;
+
   try {
     logger.info('Connecting to database...');
     await mongoose.connect(config.mongodb.uri, config.mongodb.options);
     logger.info('Connected to database');
+
+    if (force) {
+      logger.info('Force mode enabled - clearing existing data first...');
+      await clearAllData();
+    }
 
     logger.info('Running seeders...');
 
@@ -57,15 +76,7 @@ const clearAll = async () => {
     logger.info('Connected to database');
 
     logger.info('Clearing all seeded data...');
-
-    // Clear in reverse order of dependencies
-    await questionSeeder.clear();
-    await eventSeeder.clear();
-    await sermonSeeder.clear();
-    await userSeeder.clear();
-    await ministrySeeder.clear();
-    await churchSeeder.clear();
-
+    await clearAllData();
     logger.info('All data cleared successfully');
 
   } catch (error) {
@@ -84,6 +95,10 @@ if (require.main === module) {
 
   if (args.includes('--clear')) {
     clearAll();
+  } else if (args.includes('--force') || args.includes('-f')) {
+    // Force mode: clear all data and reseed
+    logger.info('Running with --force flag: will clear existing data and reseed');
+    runSeeders({ force: true });
   } else {
     runSeeders();
   }

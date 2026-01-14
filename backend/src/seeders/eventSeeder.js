@@ -1,6 +1,7 @@
 const Event = require('../models/Event');
 const Church = require('../models/Church');
 const logger = require('../helpers/logger');
+const slugify = require('slugify');
 const { EVENT_TYPES, EVENT_STATUS, VISIBILITY_LEVELS } = require('../commons/constants');
 
 const getNextSunday = (weeksAhead = 0) => {
@@ -148,18 +149,22 @@ const seed = async () => {
 
     // Get headquarters church to assign to events
     const headquarters = await Church.findOne({ isHeadquarters: true });
-    if (!headquarters) {
-      logger.warn('No headquarters church found. Seeding events without church reference.');
-      await Event.insertMany(events);
-    } else {
-      // Add church reference and visibility to each event
-      const eventsWithChurch = events.map(event => ({
-        ...event,
+
+    // Generate slugs manually since insertMany bypasses pre-save hooks
+    const eventsWithSlugs = events.map(event => ({
+      ...event,
+      slug: slugify(event.title, { lower: true, strict: true }) + '-' + Date.now(),
+      ...(headquarters && {
         church: headquarters._id,
         visibility: VISIBILITY_LEVELS.GLOBAL // HQ events visible to all
-      }));
-      await Event.insertMany(eventsWithChurch);
+      })
+    }));
+
+    if (!headquarters) {
+      logger.warn('No headquarters church found. Seeding events without church reference.');
     }
+
+    await Event.insertMany(eventsWithSlugs);
 
     logger.info(`Successfully seeded ${events.length} events`);
   } catch (error) {

@@ -21,7 +21,11 @@
     "description2": "Nossa igreja é um lugar onde você pode encontrar relacionamentos significativos, crescer na sua fé e descobrir seu propósito. Acreditamos que todos têm um lugar aqui, e mal podemos esperar para conhecê-lo.",
     "yearsMinistry": "Anos de Ministério",
     "visitUs": "Visite-nos",
-    "learnMore": "Saiba Mais"
+    "learnMore": "Saiba Mais",
+    "imagePlaceholder": "Imagem da Igreja",
+    "pastorName": "Pastor Julián Osco",
+    "pastorInitials": "JO",
+    "pastorQuote": "Existimos para ajudar as pessoas a encontrar e seguir Jesus."
   },
   "upcomingEvents": {
     "title": "Próximos Eventos",

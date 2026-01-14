@@ -43,15 +43,16 @@ export const SERVICE_TIMES = [
 export const CHURCH_INFO = {
   name: 'Sede Central Internacional',
   address: {
-    street: 'Calle Chesterton esquina Walt Whitman',
-    neighborhood: 'Barrio Los Tusequis',
+    street: 'Calle Chesterton esquina Walt Whitman, Barrio Los Tusequis',
     city: 'Santa Cruz de la Sierra',
-    department: 'Santa Cruz',
+    state: 'Santa Cruz',
+    zipCode: '',
     country: 'Bolivia',
   },
   phone: '(591) 3-3424802',
   email: 'julianoscristoeslarespuesta@gmail.com',
   foundedDate: '1969-09-24',
+  officeHours: 'Lunes - Viernes: 9:00 AM - 5:00 PM',
 };
 
 // Ministry types

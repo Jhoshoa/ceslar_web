@@ -37,7 +37,7 @@ const WelcomeSection = () => {
                 }}
               >
                 <Typography variant="h4" sx={{ opacity: 0.3 }}>
-                  Church Image
+                  {t('welcome.imagePlaceholder')}
                 </Typography>
               </Box>
               {/* Accent box */}
@@ -111,14 +111,14 @@ const WelcomeSection = () => {
                   fontSize: '1.5rem',
                 }}
               >
-                JS
+                {t('welcome.pastorInitials')}
               </Avatar>
               <Box>
                 <Typography variant="h6" color="primary.main">
-                  Pastor John Smith
+                  {t('welcome.pastorName')}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  "We exist to help people find and follow Jesus."
+                <Typography variant="body2" color="text.secondary" fontStyle="italic">
+                  "{t('welcome.pastorQuote')}"
                 </Typography>
               </Box>
             </Box>

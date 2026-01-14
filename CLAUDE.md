@@ -11,7 +11,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Backend (from `/backend`)
 ```bash
 npm run dev          # Start with nodemon (hot reload)
-npm run seed         # Seed all data (churches, users, events, sermons)
+npm run seed         # Seed all data (skips if data exists)
+npm run seed -- --force   # Force reseed: clear all data and reseed fresh
+npm run seed -- --clear   # Clear all seeded data without reseeding
 npm run seed:users   # Seed only users
 npm test             # Run Jest tests
 npm run lint         # ESLint
@@ -93,7 +95,7 @@ const result = await uploadImage(buffer, { folder: 'churches/logos', width: 400 
 - Sprint 5: ✅ Complete (Permissions + Multi-Admin)
 - Sprint 6: ✅ Complete (Questionnaire System)
 - Sprint 7: ✅ Complete (PWA + Offline)
-- Sprint 8: 🔄 Next - See `docs/features/MULTI-CHURCH-SYSTEM-ENHANCED.md`
+- Sprint 8: 🔄 In Progress (Polish & Testin)
 
 ## PWA Setup
 
@@ -107,3 +109,18 @@ The app is configured as a Progressive Web App with:
 - **Offline Fallback**: `public/offline.html`
 - **Install Prompt**: `PWAPrompts` component with localized UI
 - **Icons**: Generate with `node frontend/scripts/generate-pwa-icons.js <source-image>`
+
+## Known Issues / TODO
+
+### Mock Data in Home Components
+The following home page sections use mock data (English) that should be replaced with API calls:
+- `UpcomingEvents.jsx` - Events from API with church context
+- `LatestSermon.jsx` - Latest sermon from API
+- `MinistriesSection.jsx` - Featured ministries from API
+
+### Database Reseeding
+If the countries dropdown shows empty, run:
+```bash
+cd backend && npm run seed -- --force
+```
+This will clear all data and reseed with fresh church data.

@@ -21,7 +21,11 @@
     "description2": "Our church is a place where you can find meaningful relationships, grow in your faith, and discover your purpose. We believe that everyone has a place here, and we can't wait to meet you.",
     "yearsMinistry": "Years of Ministry",
     "visitUs": "Visit Us",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "imagePlaceholder": "Church Image",
+    "pastorName": "Pastor Julian Osco",
+    "pastorInitials": "JO",
+    "pastorQuote": "We exist to help people find and follow Jesus."
   },
   "upcomingEvents": {
     "title": "Upcoming Events",
