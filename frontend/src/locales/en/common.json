@@ -94,5 +94,417 @@
     "update": "Update",
     "offlineReady": "App ready for offline use",
     "offline": "No internet connection"
+  },
+  "common": {
+    "loading": "Loading...",
+    "yes": "Yes",
+    "no": "No",
+    "all": "All",
+    "none": "None",
+    "active": "Active",
+    "inactive": "Inactive",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "refresh": "Refresh",
+    "upload": "Upload",
+    "view": "View",
+    "viewAll": "View All",
+    "goHome": "Go to Home",
+    "signIn": "Sign In"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "expandSidebar": "Expand sidebar",
+    "collapseSidebar": "Collapse sidebar",
+    "notifications": "Notifications",
+    "nav": {
+      "dashboard": "Dashboard",
+      "churches": "Churches",
+      "events": "Events",
+      "sermons": "Sermons",
+      "ministries": "Ministries",
+      "questions": "Questions",
+      "users": "Users",
+      "backToSite": "Back to Site"
+    },
+    "role": {
+      "systemAdmin": "System Admin",
+      "admin": "Admin",
+      "staff": "Staff"
+    },
+    "menu": {
+      "profile": "Profile",
+      "settings": "Settings",
+      "logout": "Logout"
+    },
+    "auth": {
+      "loginRequired": "Authentication Required",
+      "loginMessage": "Please sign in to access the admin panel.",
+      "accessDenied": "Access Denied",
+      "noPermission": "You do not have permission to access this page."
+    },
+    "table": {
+      "search": "Search...",
+      "rowsPerPage": "Rows per page",
+      "noData": "No data available",
+      "actions": "Actions",
+      "selected": "{{count}} selected"
+    },
+    "confirm": {
+      "title": "Confirm Action",
+      "message": "Are you sure you want to proceed?"
+    },
+    "visibility": {
+      "churchOnly": "Church Only",
+      "department": "Department",
+      "country": "Country",
+      "global": "Global"
+    },
+    "dashboard": {
+      "welcome": "Welcome back!",
+      "subtitle": "Here's what's happening with your church platform.",
+      "error": "Failed to load dashboard data",
+      "totalChurches": "Total Churches",
+      "totalEvents": "Total Events",
+      "totalSermons": "Total Sermons",
+      "totalUsers": "Total Users",
+      "quickActions": "Quick Actions",
+      "createEvent": "Create Event",
+      "createSermon": "Add Sermon",
+      "createChurch": "Add Church",
+      "createMinistry": "Add Ministry",
+      "recentEvents": "Recent Events",
+      "recentSermons": "Recent Sermons",
+      "noEvents": "No events yet",
+      "noSermons": "No sermons yet"
+    },
+    "churches": {
+      "title": "Churches",
+      "searchPlaceholder": "Search churches...",
+      "empty": "No churches found",
+      "createTitle": "Create Church",
+      "editTitle": "Edit Church",
+      "deleteTitle": "Delete Church",
+      "deleteMessage": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+      "fetchError": "Failed to load churches",
+      "deleteError": "Failed to delete church",
+      "saveError": "Failed to save church",
+      "saveSuccess": "Church saved successfully!",
+      "noCover": "No cover image",
+      "columns": {
+        "name": "Name",
+        "level": "Level",
+        "location": "Location",
+        "status": "Status",
+        "created": "Created"
+      },
+      "filters": {
+        "level": "Level",
+        "status": "Status"
+      },
+      "levels": {
+        "headquarters": "Headquarters",
+        "country": "Country",
+        "department": "Department",
+        "province": "Province",
+        "local": "Local"
+      },
+      "statuses": {
+        "pending": "Pending",
+        "active": "Active",
+        "inactive": "Inactive",
+        "suspended": "Suspended"
+      },
+      "sections": {
+        "basic": "Basic Information",
+        "location": "Location",
+        "contact": "Contact Information",
+        "social": "Social Media",
+        "schedule": "Service Schedule"
+      },
+      "fields": {
+        "name": "Church Name",
+        "slug": "URL Slug",
+        "slugHelp": "Used in URLs",
+        "level": "Level",
+        "status": "Status",
+        "parent": "Parent Church",
+        "description": "Description",
+        "address": "Address",
+        "city": "City",
+        "department": "Department/State",
+        "country": "Country",
+        "postalCode": "Postal Code",
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "email": "Email",
+        "phone": "Phone",
+        "website": "Website",
+        "logo": "Logo",
+        "cover": "Cover Image",
+        "sundayService": "Sunday Service",
+        "wednesdayService": "Wednesday Service"
+      }
+    },
+    "events": {
+      "title": "Events",
+      "searchPlaceholder": "Search events...",
+      "empty": "No events found",
+      "createTitle": "Create Event",
+      "editTitle": "Edit Event",
+      "deleteTitle": "Delete Event",
+      "deleteMessage": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+      "fetchError": "Failed to load events",
+      "deleteError": "Failed to delete event",
+      "saveError": "Failed to save event",
+      "saveSuccess": "Event saved successfully!",
+      "columns": {
+        "name": "Event",
+        "date": "Date",
+        "location": "Location",
+        "status": "Status",
+        "registrations": "Registrations"
+      },
+      "filters": {
+        "status": "Status"
+      },
+      "statuses": {
+        "upcoming": "Upcoming",
+        "ongoing": "Ongoing",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      },
+      "types": {
+        "service": "Service",
+        "conference": "Conference",
+        "workshop": "Workshop",
+        "meeting": "Meeting",
+        "outreach": "Outreach",
+        "other": "Other"
+      },
+      "recurring": {
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly"
+      },
+      "sections": {
+        "basic": "Event Details",
+        "datetime": "Date & Time",
+        "location": "Location",
+        "registration": "Registration",
+        "visibility": "Visibility"
+      },
+      "fields": {
+        "name": "Event Name",
+        "type": "Event Type",
+        "church": "Church",
+        "description": "Description",
+        "startDate": "Start Date & Time",
+        "endDate": "End Date & Time",
+        "isRecurring": "Recurring Event",
+        "recurringPattern": "Repeat",
+        "address": "Address",
+        "city": "City",
+        "image": "Event Image",
+        "registrationRequired": "Registration Required",
+        "maxAttendees": "Max Attendees",
+        "visibility": "Visibility"
+      }
+    },
+    "sermons": {
+      "title": "Sermons",
+      "searchPlaceholder": "Search sermons...",
+      "empty": "No sermons found",
+      "createTitle": "Add Sermon",
+      "editTitle": "Edit Sermon",
+      "deleteTitle": "Delete Sermon",
+      "deleteMessage": "Are you sure you want to delete \"{{title}}\"?",
+      "fetchError": "Failed to load sermons",
+      "deleteError": "Failed to delete sermon",
+      "saveError": "Failed to save sermon",
+      "saveSuccess": "Sermon saved successfully!",
+      "columns": {
+        "title": "Title",
+        "speaker": "Speaker",
+        "date": "Date",
+        "church": "Church",
+        "views": "Views"
+      },
+      "filters": {
+        "series": "Series"
+      },
+      "sections": {
+        "basic": "Sermon Details",
+        "media": "Media",
+        "organization": "Organization",
+        "visibility": "Visibility"
+      },
+      "fields": {
+        "title": "Title",
+        "speaker": "Speaker",
+        "date": "Date",
+        "description": "Description",
+        "scripture": "Scripture Reference",
+        "church": "Church",
+        "series": "Series",
+        "tags": "Tags",
+        "videoUrl": "Video URL (YouTube/Vimeo)",
+        "audioUrl": "Audio URL",
+        "thumbnail": "Thumbnail",
+        "visibility": "Visibility"
+      }
+    },
+    "ministries": {
+      "title": "Ministries",
+      "searchPlaceholder": "Search ministries...",
+      "empty": "No ministries found",
+      "createTitle": "Create Ministry",
+      "editTitle": "Edit Ministry",
+      "deleteTitle": "Delete Ministry",
+      "deleteMessage": "Are you sure you want to delete \"{{name}}\"?",
+      "fetchError": "Failed to load ministries",
+      "deleteError": "Failed to delete ministry",
+      "saveError": "Failed to save ministry",
+      "saveSuccess": "Ministry saved successfully!",
+      "columns": {
+        "name": "Ministry",
+        "description": "Description",
+        "leader": "Leader",
+        "members": "Members",
+        "status": "Status"
+      },
+      "sections": {
+        "basic": "Ministry Details",
+        "meeting": "Meeting Information",
+        "status": "Status"
+      },
+      "fields": {
+        "name": "Ministry Name",
+        "church": "Church",
+        "description": "Description",
+        "meetingDay": "Meeting Day",
+        "meetingTime": "Meeting Time",
+        "meetingLocation": "Meeting Location",
+        "image": "Ministry Image",
+        "isActive": "Active",
+        "visibility": "Visibility"
+      }
+    },
+    "questions": {
+      "title": "Registration Questions",
+      "empty": "No questions found",
+      "createTitle": "Add Question",
+      "editTitle": "Edit Question",
+      "deleteTitle": "Delete Question",
+      "deleteMessage": "Are you sure you want to delete this question? User answers will be preserved.",
+      "fetchError": "Failed to load questions",
+      "deleteError": "Failed to delete question",
+      "saveError": "Failed to save question",
+      "manageCategories": "Manage Categories",
+      "noCategories": "No categories yet",
+      "newCategoryPlaceholder": "New category name...",
+      "confirmDeleteCategory": "Delete this category? Questions in this category will become uncategorized.",
+      "categoryError": "Failed to save category",
+      "questionsCount": "{{count}} questions",
+      "columns": {
+        "question": "Question",
+        "type": "Type",
+        "category": "Category",
+        "required": "Required",
+        "order": "Order"
+      },
+      "filters": {
+        "category": "Category"
+      },
+      "userTypes": {
+        "new_believer": "New Believer",
+        "transfer": "Transfer",
+        "returning": "Returning",
+        "visitor": "Visitor"
+      },
+      "errors": {
+        "textRequired": "Question text is required",
+        "optionsRequired": "At least 2 options are required"
+      },
+      "fields": {
+        "text": "Question Text",
+        "type": "Question Type",
+        "category": "Category",
+        "helpText": "Help Text",
+        "helpTextPlaceholder": "Additional instructions for the user",
+        "options": "Options",
+        "addOption": "Add option...",
+        "required": "Required",
+        "order": "Display Order",
+        "appliesTo": "Show question to"
+      }
+    },
+    "users": {
+      "title": "Users",
+      "searchPlaceholder": "Search users...",
+      "empty": "No users found",
+      "detailTitle": "User Details",
+      "notFound": "User not found",
+      "deleteTitle": "Delete User",
+      "deleteMessage": "Are you sure you want to delete this user? This action cannot be undone.",
+      "fetchError": "Failed to load users",
+      "deleteError": "Failed to delete user",
+      "oneChurch": "1 church",
+      "multipleChurches": "{{count}} churches",
+      "joinedOn": "Joined {{date}}",
+      "since": "Since {{date}}",
+      "unknownChurch": "Unknown Church",
+      "unknownQuestion": "Question",
+      "columns": {
+        "name": "User",
+        "role": "Role",
+        "churches": "Churches",
+        "status": "Status",
+        "joined": "Joined"
+      },
+      "filters": {
+        "role": "Role"
+      },
+      "roles": {
+        "system_admin": "System Admin",
+        "admin": "Admin",
+        "pastor": "Pastor",
+        "staff": "Staff",
+        "leader": "Leader",
+        "member": "Member",
+        "visitor": "Visitor",
+        "user": "User"
+      },
+      "sections": {
+        "memberships": "Church Memberships",
+        "answers": "Registration Answers"
+      },
+      "answersTable": {
+        "question": "Question",
+        "answer": "Answer"
+      },
+      "noMemberships": "No church memberships",
+      "noAnswers": "No registration answers"
+    }
+  },
+  "days": {
+    "sunday": "Sunday",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  },
+  "auth": {
+    "error": "Authentication Error",
+    "redirecting": "Redirecting...",
+    "completing": "Completing sign in..."
   }
 }
